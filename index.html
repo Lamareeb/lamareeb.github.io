@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <head>
+    <title>Laura Blankenship</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--- using Google fonts / material icons -------->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <!--- font awesome icons --->
+    <script src="https://kit.fontawesome.com/30a03930ff.js" crossorigin="anonymous"></script>
+    <!--- smooth scrolling ------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Add smooth scrolling to all links
+        $("a").on("click", function (event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $("html, body").animate(
+              {
+                scrollTop: $(hash).offset().top,
+              },
+              1500,
+              function () {
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              }
+            );
+          } // End if
+        });
+      });
+    </script>
+
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bodyBackground);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      :root {
+        --main-white: rgb(248, 244, 244);
+        --dark-white: rgb(250, 246, 246);
+                    
+
+        --main-gray: #3b3f44;
+        --light-gray: rgb(226, 226, 232);
+
+        --darkText: rgb(21, 21, 22);
+        --light-text: rgb(76, 72, 72);
+        --bodyBackground: rgb(232, 227, 227);
+        --myName: rgb(51, 51, 53);
+        --header: rgb(254, 253, 253);
+
+        --h2: rgb(229, 191, 42);
+        
+      }
+
+      /* Style the top navigation bar */
+      .nav {
+        top: 0;
+        position: absolute;
+        height: auto;
+        width: 100%;
+      }
+
+      /* header */
+      .header {
+        top: 0;
+        position: absolute;
+        background-color: var(--header);
+        box-shadow: 1px 1px 4px 0 rgba(216, 47, 47, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 3;
+      }
+      .header ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        background-color: var(--header);
+      }
+      .header li a {
+        display: block;
+        padding: 20px 20px;
+        border-left: 1px solid #f4f4f4;
+        text-decoration: none;
+        color: gray;
+        font-size: 1em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        letter-spacing: 0.2em;
+      }
+      .header li a:hover,
+      .header .menu-btn:hover {
+        background-color: var(--light-gray);
+        color: var(--darkText);
+      }
+
+      .logo {
+        height: 50px;
+        width: 50px;
+      }
+      .logo a:link {
+        color: rgb(0, 255, 4);
+      }
+      .logo a:hover {
+        color: rgb(0, 255, 4);
+      }
+      .header .logo {
+        display: block;
+        float: left;
+        font-size: 1em;
+
+        text-decoration: none;
+        color: rgb(0, 255, 4);
+      }
+      .header .logo a:link {
+        color: rgb(0, 255, 4);
+      }
+
+      /* menu */
+      .header .menu {
+        clear: both;
+        max-height: 0;
+        transition: max-height 0.2s ease-out;
+      }
+
+      /* menu icon */
+      .header .menu-icon {
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+      }
+      .header .menu-icon .navicon {
+        background: var(--main-gray); /* color for middle line of burger */
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background 0.2s ease-out;
+        width: 18px;
+      }
+      .header .menu-icon .navicon:before,
+      .header .menu-icon .navicon:after {
+        background: var(--main-gray); /* color for top and bottom lines of burger */
+        content: "";
+        height: 2px;;
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all 0.2s ease-out;
+        width: 100%;
+      }
+      .header .menu-icon .navicon:before {
+        top: 5px;
+      }
+      .header .menu-icon .navicon:after {
+        top: -5px;
+      }
+
+      /* menu btn */
+      .header .menu-btn {
+        display: none;
+      }
+      .header .menu-btn:checked ~ .menu {
+        max-height: 240px;
+      }
+      .header .menu-btn:checked ~ .menu-icon .navicon {
+        background: transparent;
+      }
+      .header .menu-btn:checked ~ .menu-icon .navicon:before {
+        transform: rotate(-45deg);
+      }
+      .header .menu-btn:checked ~ .menu-icon .navicon:after {
+        transform: rotate(45deg);
+      }
+      .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+      .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+        top: 0;
+      }
+      /*  End Menu Navigation */
+
+     
+ /* Main content Column container */
+ .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 50px auto;
+        width: 90%;
+      }
+
+     
+      /* Sidebar/left column */
+.side {
+        flex: 30%;
+        background-color: var(--dark-white);
+       
+        padding: 0px;
+        margin-top: 20px;
+        
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+       
+      }
+   /*Left Bars */
+
+      .centerBars {
+        display: flex;
+        flex-direction: column;
+        margin:auto;
+        min-width: 400px;
+        padding: 30px 10px;
+              
+     
+      }
+
+ i {
+    
+    color: rgb(229, 191, 42);
+    padding-right: 20px;
+    vertical-align: middle;
+   }
+      .fcc-btn {
+        width: 400px;
+        min-width: 400px;
+        font-size: 1.1em;
+        letter-spacing: 0.08px;
+        color: var(--main-gray);
+        background-color: white;
+                 
+
+        padding-top: 15px;
+        padding-bottom: 20px;
+        padding-left: 25px;
+       
+        margin: 1px auto 20px;  
+        
+        
+        box-shadow: 10px 10px 5px #cecbcb;
+        vertical-align: middle;
+        text-decoration: none;
+
+       
+      }
+  
+      .fcc-btn:hover {
+        color: rgb(229, 191, 42);
+       
+      }
+
+     
+ .left-text {
+          margin-left: 30px;
+        }
+     
+
+
+ .imgBox {
+        background-color: rgb(218, 218, 224);
+        width: 100% !important;
+       
+        margin-top: 0px;
+        padding: 50px;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 50px;
+        
+      }
+
+ .myPic {
+        background-image: url(images/Lamaree5.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        height: 100px;
+        width: 100px;
+        background-color: rgb(125, 127, 136);
+        border: 1px solid rgb(53, 50, 50);
+        border-radius: 50%;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+.name {
+        color: var(--myName);
+        text-align: center;
+        font-size: 1.3em;
+        letter-spacing: 0.8px;
+        margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+      /* Main center column */
+.main {
+        flex: 55%;
+        background-color: var(--bodyBackground);
+        padding: 0;
+        
+        margin-top: 20px;
+        margin-right: 40px;
+        margin-left: 10px;
+        
+}
+    .main h2 {
+        color: var(--h2);
+        text-align: center;
+        font-size: 1.3em;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+    .main h3 {
+        font-size: 1.1em;
+        color: var(--light-text);
+        margin-left: 35px;
+    }
+    .main p {
+        font-size: 1em;
+        color: var(--light-text);
+        letter-spacing: 0.7px;
+    }
+    .main ul {
+    margin-top: 1px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    list-style-type: disc;
+    letter-spacing: 0.5px;
+    }
+    .main li {
+
+        font-size: 1.0em;
+        font-family: 'Roboto', sans-serif;
+        margin-top: 5px;
+        color: var(--light-text);
+    }
+      /* div that holds the text on right */
+.text-box {
+        background-color: white;
+        letter-spacing: 0.7px;
+       
+        padding: 20px 15px 50px 5px;
+        margin: 1px 10px 30px 10px;
+        color: var(--light-text);
+        box-shadow: 10px 10px 5px #cecbcb;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+      .text-box p {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+
+
+.center-text {
+  text-align: center;
+}
+
+
+
+
+
+
+      /* Head */
+ .head {
+        padding: 100px;
+        text-align: center;
+        background: var(--light-gray);
+        color: white;
+        margin-top: 0px;
+      }
+.head h1 {
+        color: white;
+        font-size: 4em;
+      }
+
+      /* reflections for Firefox and other than webkit (CHrome and Safari */
+.real {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 2px white solid;
+ }
+ /* creates a water like reflection under the image */
+.refl {
+        display: block;
+        height: 100px;
+        width: 100px;
+        margin: auto;
+        border-radius: 50%;
+        -moz-transform: scale(1, -1);
+        -o-transform: scale(1, -1);
+        -webkit-transform: scale(1, -1);
+        transform: scale(1, -1);
+        -webkit-mask-image: -webkit-gradient(
+          linear,
+          right top,
+          right bottom,
+          from(transparent),
+          color-stop(20%, transparent),
+          to(rgba(255, 255, 255, 0.1))
+        );
+      }
+
+
+
+.skills {
+        width: 100%;
+        height: 700px;
+        background-color: rgb(189, 164, 147);
+      }
+.skills h2 {
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        padding-top: 200px;
+        margin: auto;
+      }
+
+ .projects {
+        width: 100%;
+        height: 700px;
+        background-color: rgb(119, 98, 85);
+      }
+.projects h2 {
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        padding-top: 200px;
+        margin: auto;
+      }
+.contact {
+        width: 100%;
+        height: 700px;
+        background-color: rgb(69, 67, 66);
+      }
+.contact h2 {
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        padding-top: 200px;
+        margin: auto;
+      }
+
+      /* Footer */
+ .footer {
+        padding: 150px;
+        text-align: center;
+        background: #ddd;
+      }
+
+
+
+
+
+      /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 700px) {
+        .row,
+        .navbar {
+          flex-direction: column;
+        }
+        .side {
+            margin:auto;
+            width: 95%;
+        }
+       .main {
+            margin: 10px auto;
+           
+        }
+        .side {
+          flex-direction: column;
+         margin-right: auto;;
+        margin-left: auto;
+        }
+
+      }
+
+
+          
+
+
+ 
+      /* 48em = 768px */
+
+      @media (min-width: 768px) {
+        .nav {
+          top: 0;
+          position: absolute;
+          height: auto;
+          width: 100%;
+          background-color: aqua;
+        }
+        .header li {
+          float: left;
+        }
+        .header li a {
+          padding: 20px 30px;
+        }
+        .header .menu {
+          clear: none;
+          float: right;
+          max-height: none;
+        }
+        .header .menu-icon {
+          display: none;
+        }
+        .head {
+          margin-top: 0px;
+        }
+      }
+
+      @media (max-width: 429px) {
+        .nav {
+          margin-bottom: 0px;
+        }
+        .head {
+          margin-top: 0px;
+        }
+      }
+
+
+      
+      /* scroll to top css */
+      #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 10px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: rgb(19, 18, 18); /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 5px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 15px; /* Increase font size */
+      }
+
+      #myBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
+      }
+
+
+
+      
+     
+      
+    </style>
+  </head>
+
+  <body>
+   
+    <nav>
+      <header class="header">
+        <a href="index.html"
+          ><img src="images/logo.jpeg" alt="logo" class="logo" id="logo"
+        /></a>
+        <a href="" class="logo"></a>
+        <input class="menu-btn toggler" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"
+          ><span class="navicon"></span
+        ></label>
+        <ul class="menu">
+          <li><a onclick="test()" href="index.html">Home</a></li>
+          <li><a onclick="test()" href="#about">About</a></li>
+          <li><a onclick="test()" href="#projects">Projects</a></li>
+          <li><a onclick="test()" href="#contact">Contact</a></li>
+        </ul>
+      </header>
+    </nav>
+
+    <!-- Header -->
+    <!---- 
+            <div class="head">
+      <h1>Coder of Web Things</h1>
+      <hr style="width: 60%" />
+      <p>
+        <img src="images/Lamaree5.png" class="real" />
+        <img src="images/Lamaree5.png" class="refl" />
+      </p>
+    </div>
+------>
+
+    <!-- The flexible grid (content) -->
+ <div class="row">
+
+      <div class="side">
+
+           <div class="imgBox">
+                <img src="images/Lamaree5.png" class="real" />
+            </div>   
+          <!----    <div class="myPic"></div>--->
+       <h1 class="name">Laura Blankenship</h1>
+
+
+        <div class="centerBars">
+
+            
+              <a class="fcc-btn" href="https://www.codepen.com">
+                <i class="fa-solid fa-screwdriver-wrench fa-lg"></i>
+                Web Developer
+              </a>
+           
+      
+            
+              <a class="fcc-btn" href="tel:443-5585-2221">
+                <i class="fa-solid fa-phone fa-lg"></i>
+                Call
+              </a>
+            
+      
+           
+              <a class="fcc-btn" href="mailto:lamareeb@protonmail.com">
+                <i class="fa-regular fa-envelope fa-xl"></i>
+                Email
+              </a>
+            
+      
+            
+              <a class="fcc-btn" href="https://github.com/Lamareeb">
+                <i class="fa-brands fa-github fa-xl"></i>
+                GitHub
+              </a>
+           
+      
+           
+              <a class="fcc-btn" href="https://codepen.io/LamareeB">
+                <i class="fa-brands fa-codepen fa-xl"></i>
+                CodePen
+              </a>
+           
+      
+           
+              <a class="fcc-btn" href="https://www.freecodecamp.org/">
+                <i class="fa-regular fa-envelope fa-xl"></i>
+                Email
+              </a>
+          
+          
+          </div><!--- close left container with menu boxes --->
+</div><!--- close side --->
+
+
+
+
+      <div class="main">
+        <!--- <h2>TITLE HEADING</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        --->
+        <div class="text-box">
+          <h2>Experience</h2>
+
+          <p>
+            I'm a Web Developer based in the United States. I have 6+ years of
+            experience working on all phases of the web development life cycle,
+            from working with clients - helping them realize their Web
+            Application needs to front and back end development, including
+            support after go-live.
+          </p>
+
+          <p>
+            Before becoming a Web Developer I provided network & software
+            technical support, built & fixed computers, and ran the help desk
+            when needed. I was a teaching assistant in computer networking
+            classes at University, where I studied in the (AIT) Applied
+            Information Technology program.
+          </p>
+          <p>
+            I'm versatile, I love challenges and am always learning something
+            new. I do my best to always be there for anyone who needs help or
+            wants to collaborate.
+          </p>
+
+         
+        </div><!--- close box1 --->
+
+        
+
+        <div class="text-box" id="about">
+            <h2>Positions Held</h2>
+            <ul>
+              <li>Programmer Analyst - 4 years</li>
+              <li>Web Developer / Network Admin Assistant - 3 years </li>
+              <li>PC Tech / Help Desk - 3 years</li>
+              <li>Teaching Assistant - 2 years</li>
+            </ul>
+        </div>
+       
+
+        <div class="text-box">
+
+        <h2>Skills</h2>
+        
+        <h3>Languages</h3>
+            <ul>
+            <li>ColdFusion</li>
+            <li>JavaScript</li>
+            <li>Java</li>
+            <li>Visual Basic</li>
+            </ul>
+
+        <h3>Web Technologies</h3>
+            <ul>
+            <li>UX/UI</li>
+            <li>CSS3</li>
+            <li>HTML5</li>
+            <li>Bootstrap</li>
+            <li>jQuery</li>
+            <li>Web Accessibility</li>
+            </ul>
+
+       
+
+    <h3>Development IDE & Source Control</h3>
+    <ul>
+      <li>MS Visual Studio Code</li>
+      <li>Adobe Dreamweaver</li>
+      <li>GitHub</li>
+    </ul>
+
+    <h3>Photo Editing</h3>
+    <ul>
+      <li>Photoshop</li>
+      <li>Paint.net</li>
+      <li>Gimp</li>
+    </ul>
+
+    <h3>Data</h3>
+    <ul>
+      <li>MS SQL Server</li>
+      <li>MS Office</li>
+      <li>Open Office</li>
+    </ul>
+
+    <h3>Dev Machines</h3>
+    <ul>
+        <li>Linux</li>
+       <li>Windows</li>
+       <li>Server Set Up</li>
+          <ul>
+            <li>Linux or Windows</li>
+            <li>Web Server</li>
+            <li>ColdFusion Server</li>
+            <li>SQL Server</li>
+          </ul>
+     </ul>
+      </div><!--- close box 2 --->
+      
+
+
+
+
+
+
+<div class="text-box">
+    <h2>People Stuff</h2>
+    <ul>
+      
+      <li>Training of Faculty, Staff & Students</li>
+      <li>Help Desk</li>
+      <li>Exam Proctor</li>
+      <li>Always there for anyone who needs help or wants to collaborate</li>
+      <li> I thrive on challenges and finding solutions</li>
+      <li>So I've been told, I'm skilled at making anyone from anywhere feel at ease</li>
+    </ul>
+</div>
+
+
+<div class="text-box center-text">
+    <p>I am a US Citizen.</p>
+    <p>I am eligible for a security clearance.</p>
+</div>
+
+      </div><!--- close main --->
+
+      </div>
+    </div>
+
+
+
+
+
+    <div class="skills" id="skills">
+      <h2>Skills</h2>
+      <img src="images/fccWebDesign.png" 
+      style=
+      "height: 300px; 
+      width: 300px;
+      margin: 100px auto;
+      text-align: center;
+      display: block;"
+      >
+    </div>
+
+    <div class="projects" id="projects">
+      <h2>Projects</h2>
+    </div>
+
+    <div class="contact" id="contact">
+      <h2>Contact Us</h2>
+    </div>
+
+
+
+       <!-- Footer -->
+       <div class="footer" id="contact">
+        <h2>Footer</h2>
+      </div>
+
+
+    <!--- scroll to top --->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+      // Get the button:
+      let mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+    </script>
+
+
+
+ 
+
+
+    <!--- start close menu after item selection --->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+     <script>
+      function test() {
+        $(".toggler").prop("checked", false);
+      }
+    </script>
+    <!--- end menu closer --->
+
+
+  </body>
+</html>
