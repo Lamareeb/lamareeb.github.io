@@ -39,7 +39,8 @@
         });
       });
     </script>
-
+<!--- local styles --->
+<link rel="stylesheet" href="css/flipAnimation.css" />
     <style>
       
 
@@ -250,41 +251,32 @@ vertical-align: middle;
         padding-top: 15px;
         padding-bottom: 20px;
         padding-left: 25px;
-       
         margin: 1px auto 20px auto;  
                 
         box-shadow: 10px 10px 5px #cecbcb;
         vertical-align: middle;
         text-decoration: none;
-       
-       
  }
   
 .fcc-btn:hover {
         color: rgb(229, 191, 42);
-       
-      }
+}
 
-     
 .left-text {
           margin-left: 30px;
- }
-     
-
-
+}
+ 
 .imgBox {
         background-color: rgb(218, 218, 224);
         width: 100% !important;
-       
         margin-top: 0px;
         padding: 50px;
         align-items: center;
         text-align: center;
         padding-bottom: 50px;
-        
+     
 }
-
- .myPic {
+.myPic {
         background-image: url(images/Lamaree5.png);
         background-repeat: no-repeat;
         background-position: center;
@@ -441,10 +433,11 @@ vertical-align: middle;
 
 
 
- .projects {
+.projects {
         width: 100%;
-        height: 1000px;
         background-color: rgb(119, 98, 85);
+        padding: 5px;
+        margin: 0px;
       }
 
 .projects h2 {
@@ -455,17 +448,67 @@ vertical-align: middle;
         padding-bottom: 50px;
         margin: auto;
       }
-      iframe {
-         border: none;
-         height: 400px;
-         width: auto;
-         margin: auto;
-         object-fit: contain;
-         object-position: center;
-         display: block;
-     
-         
-      }
+
+/* iframe main container  ******************************/
+.my-iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+  height: 600px;
+  padding-top:2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  margin: auto;
+  padding-top:10px;
+  margin-top: 30px;
+ 
+}
+ .my-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 99%;
+  padding: 0;
+}
+
+.my-iframe-container2 {
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+  height: 600px;
+  padding-top:2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  margin: auto;
+  padding-top:10px;
+  margin-top: 30px;
+ }
+ .my-iframe2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 99%;
+}
+      /* container for youtube iframe vid */
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
 .contact {
         width: 100%;
         height: 700px;
@@ -483,7 +526,7 @@ vertical-align: middle;
  .footer {
         padding: 150px;
         text-align: center;
-        background: #ddd;
+        background: #bba410;
       }
 
 
@@ -502,6 +545,13 @@ vertical-align: middle;
            
         }
        
+/* iframe main container  ******************************/
+.my-iframe-container {
+  width: 100%;
+}
+.my-iframe-container2 {
+  width: 100%;
+}
       }
 
 
@@ -561,13 +611,13 @@ vertical-align: middle;
         background-color: rgb(19, 18, 18); /* Set a background color */
         color: white; /* Text color */
         cursor: pointer; /* Add a mouse pointer on hover */
-        padding: 5px; /* Some padding */
+        padding: 10px; /* Some padding */
         border-radius: 10px; /* Rounded corners */
         font-size: 15px; /* Increase font size */
       }
 
       #myBtn:hover {
-        background-color: #555; /* Add a dark-grey background on hover */
+        background-color: #dab317; /* Add a dark-grey background on hover */
       }
 
 
@@ -626,15 +676,15 @@ vertical-align: middle;
         <div class="centerBars">
 
             
-              <a class="fcc-btn" href="https://www.codepen.com">
-                <i class="fa-solid fa-screwdriver-wrench fa-lg"></i>
+              <a class="fcc-btn">
+                <i class="fa-solid fa-screwdriver-wrench fa-lg">&nbsp;</i>
                 Web Developer
               </a>
            
       
             
               <a class="fcc-btn" href="tel:443-5585-2221">
-                <i class="fa-solid fa-phone fa-lg"></i>
+                <i class="fa-solid fa-phone fa-lg">&nbsp;</i>
                 Call
               </a>
             
@@ -661,10 +711,7 @@ vertical-align: middle;
            
       
            
-              <a class="fcc-btn" href="https://www.freecodecamp.org/">
-                <i class="fa-regular fa-envelope fa-xl"></i>
-                Email
-              </a>
+             
           
           
           </div><!--- close left container with menu boxes --->
@@ -811,6 +858,7 @@ vertical-align: middle;
 
 
     <div class="skills" id="skills">
+
       <h2>Skills</h2>
       <img src="images/fccWebDesign.png" 
       style=
@@ -820,6 +868,7 @@ vertical-align: middle;
       text-align: center;
       display: block;"
       >
+
     </div>
 
 
@@ -830,18 +879,31 @@ vertical-align: middle;
 
 
     <div class="projects" id="projects">
+
       <h2>Projects</h2>
 
-      <iframe 
-      src="/phone/phone.html" 
-      title="CellPhone"
-      allowfullscreen="true"
-      width="300"
-      height="350"
-       
-      >
-    </iframe>
-   </div> 
+      <div class="my-iframe-container">
+
+          <iframe class="my-iframe"
+          src="phone/phone.html" 
+          title="CellPhone" 
+          ></iframe>
+
+    </div><!--- close my-iframe-container --->
+    
+
+
+    <div class="my-iframe-container2">
+
+          <iframe class="my-iframe2"
+          src="phone/phone.html" 
+          title="CellPhone" 
+          ></iframe>
+
+    </div><!--- close my-iframe-container --->
+
+
+   </div> <!--- close projects --->
    
 
 
@@ -854,14 +916,53 @@ vertical-align: middle;
 
     <div class="contact" id="contact">
       <h2>Contact Us</h2>
-      
-    </div>
+
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="images/Lamaree5.png"
+              alt="photo of Laura"
+            />
+          </div>
+          <div class="flip-card-back">
+            <h1>INSERT YOUR HEADER FOR BACK OF CARD HERE</h1>
+            <p>Include first sentence to appear on back of card</p>
+            <p>Include second sentence to appear on back of card</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <!---
+      <div class="container"> 
+        <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+    --->
+      </div>
+
+
+
+
+
+
+
 
 
        <!-- Footer -->
        <div class="footer" id="contact">
         <h2>Footer</h2>
       </div>
+
+
+
+
+
+
+
 
 
     <!--- scroll to top --->
