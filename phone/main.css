@@ -9,6 +9,7 @@
         --centerCam: calc(120px / 2 + 20px);
         
       }
+      
       #demo {
         color: white;
       }
@@ -19,7 +20,7 @@
         border: 1px solid rgb(38, 37, 37);
         border-radius: 30px;
         padding-top: 3px;
-        margin: 300px auto;
+        margin: 25px auto;
         position: relative;
       }
 
