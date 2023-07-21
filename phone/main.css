@@ -1,0 +1,190 @@
+:root {
+        --light_font: hsl(0, 25%, 92%);
+
+        --white: #ffffff;
+        --phoneBGcolor: #666363;
+        --phoneInnerBorder: rgb(189, 184, 184);
+        --phoneFaceColor: rgb(31, 30, 30);
+        --circleBorder: rgb(56, 30, 30);
+        --centerCam: calc(120px / 2 + 20px);
+        
+      }
+      #demo {
+        color: white;
+      }
+      .phone {
+        height: 450px;
+        width: 250px;
+        background-color: var(--phoneBGcolor);
+        border: 1px solid rgb(38, 37, 37);
+        border-radius: 30px;
+        padding-top: 3px;
+        margin: 300px auto;
+        position: relative;
+      }
+
+      .phoneInner {
+        height: 445px;
+        width: 240px;
+        background-color: var(--phoneFaceColor);
+        background-image: url("image4.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 1px solid var(--phoneInnerBorder);
+        border-radius: 25px;
+        border-style: groove;
+        margin: auto;
+      }
+      .greenDot {
+        height: 5px;
+        width: 5px;
+        border: 1px solid var(--circleBorder);
+        background-color: greenyellow;
+        border-radius: 50%;
+        top: 10px;
+        left: 20px;
+        position: relative;
+        z-index: 6;
+        animation: blink-animation 5s steps(5, start) infinite;
+        /* speed of blink */
+        -webkit-animation: blink-animation 5s steps(5, start) infinite;
+      }
+      @keyframes blink-animation {
+        to {
+          visibility: hidden;
+        }
+      }
+
+      .flexTopIcons {
+        top:8px;
+        right: 6px;
+        width: 20%;
+        height: auto;
+        position: absolute;
+        display: flex;
+        padding: 2px;
+        flex-direction: row;
+        justify-content: flex-end;
+        
+      }
+      .topIcons {
+        font-size: 15px;
+        color: white;
+        padding: 2px 2px 0px 0px;
+      }
+      .wifi {
+        color: white;
+      }
+      .battery {
+        color: rgb(139, 210, 33);
+      }
+      .bars {
+        color: red;
+      }
+      .camView {
+        width: 75px;
+        height: 20px;
+        margin-top: 2px;
+        background-color: rgb(48, 47, 47);
+        border-bottom: 1px black solid;
+        border-radius: 10px;
+        margin-left: var(--centerCam);
+      }
+
+      h1 {
+        font-family: "Roboto", sans-serif;
+        font-family: "Ysabeau Office", sans-serif;
+        color: var(--light_font);
+        font-size: 1.2rem;
+        text-align: center;
+
+        margin-top: 40px;
+        padding-bottom: 20px;
+      }
+      h2 {
+        color: var(--light_font);
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      .flexIcons {
+        height: auto;
+        margin-top: 100px;
+        display: flex;
+        padding: 2px;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .appDeco {
+        color: rgb(243, 235, 235);
+        padding:2px;
+        background-color: rgb(65, 63, 63);
+        border-radius: 3px;
+        /*
+        border-image: linear-gradient(45deg, rgb(60, 60, 213), rgb(18, 204, 18))
+          1;
+          */
+        background-image: linear-gradient(
+          to bottom right,
+          rgb(24, 115, 211),
+          rgb(69, 163, 25)
+        );
+        border-style: solid;
+        border-width: 1.5px;
+        z-index: 5;
+      }
+
+      .circle {
+        height: 30px;
+        width: 30px;
+        border: 2px solid rgb(7, 7, 8);
+        border-radius: 50%;
+        /* background: radial-gradient(black, rgb(255, 255, 255));*/
+        background-color: rgb(43, 43, 46);
+        margin: auto;
+       
+      }
+  .mat-icon {
+        color: var(--pink_font);
+        border: 0.2px solid rgb(130, 127, 130);
+        border-radius: 2.5px;
+        border-right: none;
+        background-color: black;
+        vertical-align: middle;
+        padding:2px;
+        margin-right: 0;
+      }
+    
+    .bottomRibbon {
+        height: 45px;
+        width:96%;
+        padding-top: 10px;
+        position: absolute;
+        bottom: 4.5px;
+        background-color: whitesmoke;
+        border-bottom: 1px solid rgb(13, 12, 12);
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+.email {
+        margin: 0px auto 0px auto;
+      }
+.password {
+        margin: 0px auto 0px auto;
+      }
+
+ input {
+        width: 60%;
+        height: 30px;
+        color: var(--white);
+        border: 0.2px solid rgb(130, 127, 130);
+        border-radius: 2.5px;
+        border-left: none;
+        background-color: rgb(4, 3, 3);
+        margin: 0px auto;
+        padding: 2px 5px 2px 15px;
+      }
+ .center {
+        text-align: center;
+      }
+   

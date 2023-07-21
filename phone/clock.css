@@ -1,0 +1,147 @@
+
+html {
+    text-align: center;
+  }
+  
+ 
+  /* far outer ring */
+  .clock {
+    width: 5.5rem;
+    height: 5.5rem;
+    position: relative;
+    padding: 0.7rem;
+    border: 2px solid #282828;
+    box-shadow: -4px -4px 10px rgba(67,67,67,0.5),
+                  inset 4px 4px 10px rgba(0,0,0,0.5),
+                  inset -4px -4px 10px rgba(67,67,67,0.5),
+                  4px 4px 10px rgba(0,0,0,0.3);
+    border-radius: 50%;
+    margin: 10px auto;
+  }
+  
+  
+  /* outer clock ring */
+  .outer-clock-face {
+    position: relative;
+    background: #3a3636;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+   
+  }
+  
+  .outer-clock-face::after {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg)
+  }
+  /* changes increments on face */
+  .outer-clock-face::after,
+  .outer-clock-face::before,
+  .outer-clock-face .marking{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: #1df52f;
+    z-index: 0;
+    left: 49%;
+  }
+  
+  
+  
+  /* hour lines */
+  .outer-clock-face .marking {
+    background: #499fc4;
+    width: 2px;
+  }
+  
+  .outer-clock-face .marking.marking-one {
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    transform: rotate(30deg)
+  }
+  
+  .outer-clock-face .marking.marking-two {
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    transform: rotate(60deg)
+  }
+  
+  .outer-clock-face .marking.marking-three {
+    -webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    transform: rotate(120deg)
+  }
+  
+  .outer-clock-face .marking.marking-four {
+    -webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);
+    transform: rotate(150deg)
+  }
+  
+  
+  
+  
+  .inner-clock-face {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: #282828;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    z-index: 1;
+  }
+  /* inner dot */
+  .inner-clock-face::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    border-radius: 18px;
+    margin-left: -7px;
+    margin-top: -6px;
+    background: #6d6a8a;
+    z-index: 11;
+  }
+  
+  
+  /* hour & min hand */
+  .hand {
+    width: 50%;
+    right: 50%;
+    height: 5px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    border-radius: 6px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  }
+  
+  .hand.hour-hand {
+    width: 40%; /* length of hand */
+    z-index: 3;
+    height: 2.5px; /* makes it fatter or skinnier*/
+  }
+  
+  .hand.min-hand {
+    height: 2.5px; /* makes it fatter or skinnier*/
+    z-index: 10;
+    width: 50%; /* length of hand */
+  }
+  
+  .hand.second-hand {
+    background: white;
+    width: 50%;
+    height: 0.5px;
+   
+  }
+
