@@ -4,13 +4,23 @@
   <head>
     <title>Laura Blankenship</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--- w3 include html file---->
+    <!--- w3 include for flip animation---->
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
 
     <!--- font awesome icons --->
-    <script src="https://kit.fontawesome.com/30a03930ff.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/30a03930ff.js"
+      crossorigin="anonymous"
+    ></script>
     <!--- smooth scrolling ------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--- aos animate library links --->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!--- end aos animation --->
+
     <script>
       $(document).ready(function () {
         // Add smooth scrolling to all links
@@ -39,13 +49,10 @@
         });
       });
     </script>
-<!--- local styles --->
-<link rel="stylesheet" href="css/flipAnimation.css" />
+    <!--- local styles --->
+
+    <link rel="stylesheet" href="css/flipAnimation.css" />
     <style>
-      
-
-
-
       *,
       *:before,
       *:after {
@@ -61,7 +68,6 @@
       :root {
         --main-white: rgb(248, 244, 244);
         --dark-white: rgb(250, 246, 246);
-                    
 
         --main-gray: #3b3f44;
         --light-gray: rgb(226, 226, 232);
@@ -73,7 +79,7 @@
         --header: rgb(254, 253, 253);
 
         --h2: rgb(229, 191, 42);
-        
+        --goldAccent: rgb(229, 191, 42);
       }
 
       /* Style the top navigation bar */
@@ -165,9 +171,11 @@
       }
       .header .menu-icon .navicon:before,
       .header .menu-icon .navicon:after {
-        background: var(--main-gray); /* color for top and bottom lines of burger */
+        background: var(
+          --main-gray
+        ); /* color for top and bottom lines of burger */
         content: "";
-        height: 2px;;
+        height: 2px;
         display: block;
         height: 100%;
         position: absolute;
@@ -203,70 +211,131 @@
       }
       /*  End Menu Navigation */
 
-     
- /* Main content Column container */
- .row {
+      /* Main content Column container */
+      .row {
         display: flex;
         flex-wrap: wrap;
         margin: 50px auto;
         width: 90%;
       }
 
-     
       /* Sidebar/left column */
-.side {
+      .side {
         flex: 25%;
         background-color: var(--dark-white);
-       
         padding: 0px;
         margin-top: 25px;
-        
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-       
       }
-   /*Left Bars */
 
-.centerBars {
+      /* Main center column */
+      .main {
+        flex: 65%;
+        background-color: var(--bodyBackground);
+        padding: 0;
+
+        margin-top: 25px;
+        margin-right: 40px;
+        margin-left: 15px;
+      }
+      .main h1 {
+        color: var(--goldAccent);
+        text-align: center;
+        font-size: 1.5em;
+
+        margin: 30px auto 50px auto;
+      }
+      .main h2 {
+        color: var(--goldAccent);
+        text-align: center;
+        font-size: 1.3em;
+        margin-top: 40px;
+        margin-bottom: 50px;
+      }
+      .main h3 {
+        font-size: 1.1em;
+        color: var(--light-text);
+        margin-left: 35px;
+      }
+      .main p {
+        font-size: 1em;
+        color: var(--light-text);
+        letter-spacing: 0.7px;
+      }
+      .main ul {
+        margin-top: 1px;
+        margin-bottom: 30px;
+        margin-left: 30px;
+        list-style-type: disc;
+        letter-spacing: 0.5px;
+      }
+      .main li {
+        font-size: 1em;
+        font-family: "Roboto", sans-serif;
+        margin-top: 5px;
+        color: var(--light-text);
+      }
+      /* div that holds the text on right */
+      .text-box {
+        background-color: white;
+        letter-spacing: 0.7px;
+
+        padding: 10px 10px 50px 10px;
+        margin: 1px auto 30px auto;
+        color: var(--light-text);
+        box-shadow: 10px 10px 5px #cecbcb;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .text-box p {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+
+      .center-text {
+        text-align: center;
+      }
+
+      /*Left Bars - bar container */
+
+      .centerBars {
         display: flex;
         flex-direction: column;
-        margin:auto;
-        padding: 20px 1px;
-      
-}
+        margin: auto;
+        padding: 20px 1px 10px 1px;
+      }
 
- i {
-    
-color: rgb(229, 191, 42);
-padding-right: 30px;
-vertical-align: middle;
-}
-.fcc-btn {
-        
+      i {
+        color: rgb(229, 191, 42);
+        padding-right: 30px;
+        vertical-align: middle;
+      }
+
+      .bar {
         width: 80%;
         font-size: 1.1em;
         letter-spacing: 0.08px;
         color: var(--main-gray);
         background-color: white;
-    
+
         padding-top: 15px;
         padding-bottom: 20px;
         padding-left: 25px;
-        margin: 1px auto 20px auto;  
-                
+        margin: 1px auto 20px auto;
+
         box-shadow: 10px 10px 5px #cecbcb;
         vertical-align: middle;
         text-decoration: none;
- }
-  
-.fcc-btn:hover {
-        color: rgb(229, 191, 42);
-}
+      }
 
-.left-text {
-          margin-left: 30px;
-}
- 
-.imgBox {
+      .bar:hover {
+        color: rgb(229, 191, 42);
+      }
+
+      .left-text {
+        margin-left: 30px;
+      }
+
+      .imgBox {
         background-color: rgb(218, 218, 224);
         width: 100% !important;
         margin-top: 0px;
@@ -274,9 +343,8 @@ vertical-align: middle;
         align-items: center;
         text-align: center;
         padding-bottom: 50px;
-     
-}
-.myPic {
+      }
+      .myPic {
         background-image: url(images/Lamaree5.png);
         background-repeat: no-repeat;
         background-position: center;
@@ -288,112 +356,37 @@ vertical-align: middle;
         border-radius: 50%;
         margin: auto;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.name {
+      }
+      .name {
         color: var(--myName);
         text-align: center;
         font-size: 1.3em;
         letter-spacing: 0.8px;
         margin-bottom: 50px;
-}
-
-
-
-
-
-
-
-
-      /* Main center column */
-.main {
-        flex: 65%;
-        background-color: var(--bodyBackground);
-        padding: 0;
-        
-        margin-top: 25px;
-        margin-right: 40px;
-        margin-left: 15px;
-        
-}
-    .main h2 {
-        color: var(--h2);
-        text-align: center;
-        font-size: 1.3em;
-        margin-top: 30px;
-        margin-bottom: 40px;
-    }
-    .main h3 {
-        font-size: 1.1em;
-        color: var(--light-text);
-        margin-left: 35px;
-    }
-    .main p {
-        font-size: 1em;
-        color: var(--light-text);
-        letter-spacing: 0.7px;
-    }
-    .main ul {
-    margin-top: 1px;
-    margin-bottom: 30px;
-    margin-left: 10px;
-    list-style-type: disc;
-    letter-spacing: 0.5px;
-    }
-    .main li {
-
-        font-size: 1.0em;
-        font-family: 'Roboto', sans-serif;
-        margin-top: 5px;
-        color: var(--light-text);
-    }
-      /* div that holds the text on right */
-.text-box {
-        background-color: white;
-        letter-spacing: 0.7px;
-       
-        padding: 20px 15px 50px 5px;
-        margin: 1px auto 30px auto;
-        color: var(--light-text);
-        box-shadow: 10px 10px 5px #cecbcb;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-      .text-box p {
-        margin-left: 30px;
-        margin-right: 30px;
       }
 
-
-.center-text {
-  text-align: center;
-}
-
-
-
-
-
-
       /* Head */
- .head {
+      .head {
         padding: 100px;
         text-align: center;
         background: var(--light-gray);
         color: white;
         margin-top: 0px;
       }
-.head h1 {
+      .head h1 {
         color: white;
         font-size: 4em;
       }
 
       /* reflections for Firefox and other than webkit (CHrome and Safari */
-.real {
+      .real {
         height: 100px;
         width: 100px;
         border-radius: 50%;
         border: 2px white solid;
- }
- /* creates a water like reflection under the image */
-.refl {
+      }
+      /* creates a water like reflection under the image */
+      .refl {
         display: block;
         height: 100px;
         width: 100px;
@@ -413,14 +406,12 @@ vertical-align: middle;
         );
       }
 
-
-
-.skills {
+      .skills {
         width: 100%;
         height: 700px;
         background-color: rgb(189, 164, 147);
       }
-.skills h2 {
+      .skills h2 {
         color: white;
         font-size: 1.5rem;
         text-align: center;
@@ -428,19 +419,14 @@ vertical-align: middle;
         margin: auto;
       }
 
-
-
-
-
-
-.projects {
+      .projects {
         width: 100%;
         background-color: rgb(119, 98, 85);
         padding: 5px;
         margin: 0px;
       }
 
-.projects h2 {
+      .projects h2 {
         color: white;
         font-size: 1.5rem;
         text-align: center;
@@ -449,72 +435,71 @@ vertical-align: middle;
         margin: auto;
       }
 
-/* iframe main container  ******************************/
-.my-iframe-container {
-  position: relative;
-  overflow: hidden;
-  width: 60%;
-  height: 600px;
-  padding-top:2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-  margin: auto;
-  padding-top:10px;
-  margin-top: 30px;
- 
-}
- .my-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 99%;
-  padding: 0;
-}
+      /* iframe main container  ******************************/
+      .my-iframe-container {
+        position: relative;
+        overflow: hidden;
+        width: 60%;
+        height: 600px;
+        padding-top: 2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+        margin: auto;
+        padding-top: 10px;
+        margin-top: 30px;
+      }
+      .my-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 99%;
+        padding: 0;
+      }
 
-.my-iframe-container2 {
-  position: relative;
-  overflow: hidden;
-  width: 60%;
-  height: 600px;
-  padding-top:2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-  margin: auto;
-  padding-top:10px;
-  margin-top: 30px;
- }
- .my-iframe2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 99%;
-}
+      .my-iframe-container2 {
+        position: relative;
+        overflow: hidden;
+        width: 60%;
+        height: 600px;
+        padding-top: 2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+        margin: auto;
+        padding-top: 10px;
+        margin-top: 30px;
+      }
+      .my-iframe2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 99%;
+      }
       /* container for youtube iframe vid */
-.container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-}
+      .container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+      }
 
-/* Then style the iframe to fit in the container div with full height and width */
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-.contact {
+      /* Then style the iframe to fit in the container div with full height and width */
+      .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .contact {
         width: 100%;
         height: 700px;
         background-color: rgb(69, 67, 66);
       }
-.contact h2 {
+      .contact h2 {
         color: white;
         font-size: 1.5rem;
         text-align: center;
@@ -523,15 +508,11 @@ vertical-align: middle;
       }
 
       /* Footer */
- .footer {
+      .footer {
         padding: 150px;
         text-align: center;
         background: #bba410;
       }
-
-
-
-
 
       /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
       @media screen and (max-width: 700px) {
@@ -539,26 +520,19 @@ vertical-align: middle;
         .navbar {
           flex-direction: column;
         }
-        
-       .main {
-            margin: 10px auto;
-           
+
+        .main {
+          margin: 10px auto;
         }
-       
-/* iframe main container  ******************************/
-.my-iframe-container {
-  width: 100%;
-}
-.my-iframe-container2 {
-  width: 100%;
-}
+        /* iframe main container  ******************************/
+        .my-iframe-container {
+          width: 100%;
+        }
+        .my-iframe-container2 {
+          width: 100%;
+        }
       }
 
-
-          
-
-
- 
       /* 48em = 768px */
 
       @media (min-width: 768px) {
@@ -597,8 +571,6 @@ vertical-align: middle;
         }
       }
 
-
-      
       /* scroll to top css */
       #myBtn {
         display: none; /* Hidden by default */
@@ -619,17 +591,10 @@ vertical-align: middle;
       #myBtn:hover {
         background-color: #dab317; /* Add a dark-grey background on hover */
       }
-
-
-
-      
-     
-      
     </style>
   </head>
 
   <body>
-   
     <nav>
       <header class="header">
         <a href="index.html"
@@ -662,70 +627,48 @@ vertical-align: middle;
 ------>
 
     <!-- The flexible grid (content) -->
- <div class="row">
-
+    <div class="row">
       <div class="side">
+        <div class="imgBox">
+          <img src="images/Lamaree5.png" class="real" />
+        </div>
 
-           <div class="imgBox">
-                <img src="images/Lamaree5.png" class="real" />
-            </div>   
-          <!----    <div class="myPic"></div>--->
-       <h1 class="name">Laura Blankenship</h1>
-
+        <!----    <div class="myPic"></div>--->
+        <h1 class="name">Laura Blankenship</h1>
 
         <div class="centerBars">
+          <a class="bar">
+            <i class="fa-solid fa-screwdriver-wrench fa-lg">&nbsp;</i>
+            Web Developer
+          </a>
 
-            
-              <a class="fcc-btn">
-                <i class="fa-solid fa-screwdriver-wrench fa-lg">&nbsp;</i>
-                Web Developer
-              </a>
-           
-      
-            
-              <a class="fcc-btn" href="tel:443-5585-2221">
-                <i class="fa-solid fa-phone fa-lg">&nbsp;</i>
-                Call
-              </a>
-            
-      
-           
-              <a class="fcc-btn" href="mailto:lamareeb@protonmail.com">
-                <i class="fa-regular fa-envelope fa-xl"></i>
-                Email
-              </a>
-            
-      
-            
-              <a class="fcc-btn" href="https://github.com/Lamareeb">
-                <i class="fa-brands fa-github fa-xl"></i>
-                GitHub
-              </a>
-           
-      
-           
-              <a class="fcc-btn" href="https://codepen.io/LamareeB">
-                <i class="fa-brands fa-codepen fa-xl"></i>
-                CodePen
-              </a>
-           
-      
-           
-             
-          
-          
-          </div><!--- close left container with menu boxes --->
-</div><!--- close side --->
+          <a class="bar" href="tel:443-5585-2221">
+            <i class="fa-solid fa-phone fa-lg">&nbsp;</i>
+            Call
+          </a>
 
+          <a class="bar" href="mailto:lamareeb@protonmail.com">
+            <i class="fa-regular fa-envelope fa-xl"></i>
+            Email
+          </a>
 
+          <a class="bar" href="https://github.com/Lamareeb">
+            <i class="fa-brands fa-github fa-xl"></i>
+            GitHub
+          </a>
 
+          <a class="bar" href="https://codepen.io/LamareeB">
+            <i class="fa-brands fa-codepen fa-xl"></i>
+            CodePen
+          </a>
+        </div>
+        <!--- close left container with menu boxes --->
+      </div>
+      <!--- close side --->
 
       <div class="main">
-        <!--- <h2>TITLE HEADING</h2>
-        <h5>Title description, Dec 7, 2017</h5>
-        --->
         <div class="text-box">
-          <h2>Experience</h2>
+          <h1>About Me</h1>
 
           <p>
             I'm a Web Developer based in the United States. I have 6+ years of
@@ -747,184 +690,150 @@ vertical-align: middle;
             new. I do my best to always be there for anyone who needs help or
             wants to collaborate.
           </p>
-
-         
-        </div><!--- close box1 --->
-
-        
+        </div>
+        <!--- close box1 --->
 
         <div class="text-box" id="about">
-            <h2>Positions Held</h2>
-            <ul>
-              <li>Programmer Analyst - 4 years</li>
-              <li>Web Developer / Network Admin Assistant - 3 years </li>
-              <li>PC Tech / Help Desk - 3 years</li>
-              <li>Teaching Assistant - 2 years</li>
-            </ul>
+          <h2>Positions Held</h2>
+          <ul>
+            <li>Programmer Analyst - 4 years</li>
+            <li>Web Developer / Network Admin Assistant - 3 years</li>
+            <li>PC Tech / Help Desk - 3 years</li>
+            <li>Teaching Assistant - 2 years</li>
+          </ul>
         </div>
-       
+        <!--- close box 2--->
 
         <div class="text-box">
+          <h2>Skills</h2>
 
-        <h2>Skills</h2>
-        
-        <h3>Languages</h3>
-            <ul>
+          <h3>Languages</h3>
+          <ul>
             <li>ColdFusion</li>
             <li>JavaScript</li>
             <li>Java</li>
             <li>Visual Basic</li>
-            </ul>
+          </ul>
 
-        <h3>Web Technologies</h3>
-            <ul>
+          <h3>Web Technologies</h3>
+          <ul>
             <li>UX/UI</li>
             <li>CSS3</li>
             <li>HTML5</li>
             <li>Bootstrap</li>
             <li>jQuery</li>
             <li>Web Accessibility</li>
-            </ul>
-
-       
-
-    <h3>Development IDE & Source Control</h3>
-    <ul>
-      <li>MS Visual Studio Code</li>
-      <li>Adobe Dreamweaver</li>
-      <li>GitHub</li>
-    </ul>
-
-    <h3>Photo Editing</h3>
-    <ul>
-      <li>Photoshop</li>
-      <li>Paint.net</li>
-      <li>Gimp</li>
-    </ul>
-
-    <h3>Data</h3>
-    <ul>
-      <li>MS SQL Server</li>
-      <li>MS Office</li>
-      <li>Open Office</li>
-    </ul>
-
-    <h3>Dev Machines</h3>
-    <ul>
-        <li>Linux</li>
-       <li>Windows</li>
-       <li>Server Set Up</li>
-          <ul>
-            <li>Linux or Windows</li>
-            <li>Web Server</li>
-            <li>ColdFusion Server</li>
-            <li>SQL Server</li>
           </ul>
-     </ul>
-      </div><!--- close box 2 --->
-      
 
+          <h3>Development IDE & Source Control</h3>
+          <ul>
+            <li>MS Visual Studio Code</li>
+            <li>Adobe Dreamweaver</li>
+            <li>GitHub</li>
+          </ul>
 
+          <h3>Photo Editing</h3>
+          <ul>
+            <li>Photoshop</li>
+            <li>Paint.net</li>
+            <li>Gimp</li>
+          </ul>
 
+          <h3>Data</h3>
+          <ul>
+            <li>MS SQL Server</li>
+            <li>MS Office</li>
+            <li>Open Office</li>
+          </ul>
 
+          <h3>Dev Machines</h3>
+          <ul>
+            <li>Linux</li>
+            <li>Windows</li>
+            <li>Server Set Up</li>
+            <ul>
+              <li>Linux or Windows</li>
+              <li>Web Server</li>
+              <li>ColdFusion Server</li>
+              <li>SQL Server</li>
+            </ul>
+          </ul>
+        </div>
+        <!--- close box 3 --->
 
+        <div class="text-box">
+          <h2>People Stuff</h2>
+          <ul>
+            <li>Training of Faculty, Staff & Students</li>
+            <li>Help Desk</li>
+            <li>Exam Proctor</li>
+            <li>
+              Always there for anyone who needs help or wants to collaborate
+            </li>
+            <li>I thrive on challenges and finding solutions</li>
+            <li>
+              So I've been told, I'm skilled at making anyone from anywhere feel
+              at ease
+            </li>
+          </ul>
+        </div>
+        <!--- close box 4 --->
 
-<div class="text-box">
-    <h2>People Stuff</h2>
-    <ul>
-      
-      <li>Training of Faculty, Staff & Students</li>
-      <li>Help Desk</li>
-      <li>Exam Proctor</li>
-      <li>Always there for anyone who needs help or wants to collaborate</li>
-      <li> I thrive on challenges and finding solutions</li>
-      <li>So I've been told, I'm skilled at making anyone from anywhere feel at ease</li>
-    </ul>
-</div>
-
-
-<div class="text-box center-text">
-    <p>I am a US Citizen.</p>
-    <p>I am eligible for a security clearance.</p>
-</div>
-
-      </div><!--- close main --->
-
+        <div class="text-box center-text">
+          <h1></h1>
+          <p>I am a US Citizen.</p>
+          <p>I am eligible for a security clearance.</p>
+        </div>
+        <!--- close box 5 --->
       </div>
+      <!--- close main --->
     </div>
-
-
-
-
+    <!--- close row --->
 
     <div class="skills" id="skills">
-
       <h2>Skills</h2>
-      <img src="images/fccWebDesign.png" 
-      style=
-      "height: 300px; 
-      width: 300px;
-      margin: 100px auto;
-      text-align: center;
-      display: block;"
-      >
-
+      <img
+        src="images/fccWebDesign.png"
+        style="
+          height: 300px;
+          width: 300px;
+          margin: 100px auto;
+          text-align: center;
+          display: block;
+        "
+      />
     </div>
 
-
-
-
-
-
-
-
     <div class="projects" id="projects">
-
       <h2>Projects</h2>
 
       <div class="my-iframe-container">
+        <iframe
+          class="my-iframe"
+          src="phone/phone.html"
+          title="CellPhone"
+        ></iframe>
+      </div>
+      <!--- close my-iframe-container --->
 
-          <iframe class="my-iframe"
-          src="phone/phone.html" 
-          title="CellPhone" 
-          ></iframe>
-
-    </div><!--- close my-iframe-container --->
-    
-
-
-    <div class="my-iframe-container2">
-
-          <iframe class="my-iframe2"
-          src="phone/phone.html" 
-          title="CellPhone" 
-          ></iframe>
-
-    </div><!--- close my-iframe-container --->
-
-
-   </div> <!--- close projects --->
-   
-
-
-
-
-
-
-
-
+      <div class="my-iframe-container2">
+        <iframe
+          class="my-iframe2"
+          src="phone/phone.html"
+          title="CellPhone"
+        ></iframe>
+      </div>
+      <!--- close my-iframe-container --->
+    </div>
+    <!--- close projects --->
 
     <div class="contact" id="contact">
       <h2>Contact Us</h2>
 
-
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img
-              src="images/Lamaree5.png"
-              alt="photo of Laura"
-            />
+            <img src="images/Lamaree5.png" alt="photo of Laura" />
           </div>
           <div class="flip-card-back">
             <h1>INSERT YOUR HEADER FOR BACK OF CARD HERE</h1>
@@ -933,37 +842,13 @@ vertical-align: middle;
           </div>
         </div>
       </div>
+    </div>
+    <!---- close contact section --->
 
-
-
-
-
-      <!---
-      <div class="container"> 
-        <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-    --->
-      </div>
-
-
-
-
-
-
-
-
-
-       <!-- Footer -->
-       <div class="footer" id="contact">
-        <h2>Footer</h2>
-      </div>
-
-
-
-
-
-
-
-
+    <!-- Footer -->
+    <div class="footer" id="contact">
+      <h2>Footer</h2>
+    </div>
 
     <!--- scroll to top --->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
@@ -994,20 +879,13 @@ vertical-align: middle;
       }
     </script>
 
-
-
- 
-
-
     <!--- start close menu after item selection --->
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-     <script>
+    <script>
       function test() {
         $(".toggler").prop("checked", false);
       }
     </script>
     <!--- end menu closer --->
-
-
   </body>
 </html>
