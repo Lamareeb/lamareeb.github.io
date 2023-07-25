@@ -18,8 +18,11 @@
     <!--- aos animate library links --->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <!--- end aos animation --->
+<!--- local styles ---
+<link href="logoStyles.css" rel="stylesheet" />
+--->
+
 
     <script>
       $(document).ready(function () {
@@ -80,7 +83,8 @@
 
         --h2: rgb(229, 191, 42);
         --goldAccent: rgb(229, 191, 42);
-      }
+       
+ }
 
       /* Style the top navigation bar */
       .nav {
@@ -124,8 +128,11 @@
       }
 
       .logo {
-        height: 50px;
-        width: 50px;
+        height: 40px;
+        width: 40px;
+        margin-top: 10px;
+        margin-left: 10px;
+        
       }
       .logo a:link {
         color: rgb(0, 255, 4);
@@ -255,7 +262,7 @@
       .main h3 {
         font-size: 1.1em;
         color: var(--light-text);
-        margin-left: 35px;
+        margin-left: 20px;
       }
       .main p {
         font-size: 1em;
@@ -264,8 +271,8 @@
       }
       .main ul {
         margin-top: 1px;
-        margin-bottom: 30px;
-        margin-left: 30px;
+        margin-bottom: 20px;
+        margin-left: 50px;
         list-style-type: disc;
         letter-spacing: 0.5px;
       }
@@ -306,7 +313,7 @@
 
       i {
         color: rgb(229, 191, 42);
-        padding-right: 30px;
+        padding-right: 15px;
         vertical-align: middle;
       }
 
@@ -425,6 +432,10 @@
         padding: 5px;
         margin: 0px;
       }
+      pre {
+        overflow: scroll;
+      }
+      
 
       .projects h2 {
         color: white;
@@ -434,6 +445,7 @@
         padding-bottom: 50px;
         margin: auto;
       }
+
 
       /* iframe main container  ******************************/
       .my-iframe-container {
@@ -466,6 +478,7 @@
         margin: auto;
         padding-top: 10px;
         margin-top: 30px;
+        margin-bottom: 150px;
       }
       .my-iframe2 {
         position: absolute;
@@ -476,7 +489,27 @@
         width: 100%;
         height: 99%;
       }
-      /* container for youtube iframe vid */
+
+      .my-iframe-container3 {
+        position: relative;
+        overflow: hidden;
+        width: 60%;
+        height: 600px;
+        padding-top: 2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+        margin: auto;
+        padding-top: 10px;
+        margin-top: 30px;
+      }
+      .my-iframe3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 99%;
+      }
+      /* container for  iframe  */
       .container {
         position: relative;
         overflow: hidden;
@@ -514,6 +547,109 @@
         background: #bba410;
       }
 
+
+
+      /* logo styles ********************************************/
+
+
+ .oneOut {
+     height: var(--heightOuter);
+     width: var(--widthOuter);
+     border-radius: 50%;
+     background-color: var(--oneOut);
+     margin-top: 1px;
+     margin-left: 1px;
+     position: absolute;
+ }
+
+ .oneIn {
+     height: var(--heightInner);
+     width: var(--widthInner);
+     border-radius: 50%;
+     background-color: var(--oneIn);
+
+     margin-top: 7px;
+     margin-left: 7px;
+     position: absolute;
+ }
+
+ .twoOut {
+     height: var(--heightOuter);
+     width: var(--widthOuter);
+     border-radius: 50%;
+     background-color: var(--twoOut);
+     margin-top: 1px;
+     margin-left: 30px;
+     position: absolute;
+ }
+
+ .twoIn {
+     height: var(--heightInner);
+     width: var(--widthInner);
+     border-radius: 50%;
+     background-color: var(--twoIn);
+     margin-top: 7px;
+     margin-left: 28px;
+     position: absolute;
+ }
+
+ .threeOut {
+     height: var(--heightOuter);
+     width: var(--widthOuter);
+     border-radius: 50%;
+     background-color: var(--threeOut);
+     margin-top: 30px;
+     margin-left: 30px;
+     position: absolute;
+ }
+
+ .threeIn {
+     height: var(--heightInner);
+     width: var(--widthInner);
+     border-radius: 50%;
+     background-color: var(--threeIn);
+     margin-top: 28px;
+     margin-left: 28px;
+     position: absolute;
+ }
+
+
+ .fourOut {
+     height: var(--heightOuter);
+     width: var(--widthOuter);
+     border-radius: 50%;
+     background-color: var(--fourOut);
+     margin-top: 30px;
+     margin-left: 1px;
+     position: absolute;
+ }
+
+ .fourIn {
+     height: var(--heightInner);
+     width: var(--widthInner);
+     border-radius: 50%;
+     background-color: var(--fourIn);
+     margin-top: 28px;
+     margin-left: 8px;
+     position: absolute;
+ }
+
+ .logoContainer {
+     height: 50px;
+     width: 50px;
+
+     border: 1px solid black;
+     background-color: white;
+     
+     
+
+     margin-top: 1px;
+     position: absolute;
+     z-index: 7;
+
+ }
+ /* END logo styles ************************************/
+
       /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
       @media screen and (max-width: 700px) {
         .row,
@@ -524,11 +660,35 @@
         .main {
           margin: 10px auto;
         }
+        .main ul {
+          margin-left: 1px;
+        }
+        .main h2 {
+          text-align: center;
+        }
+        .main h3 {
+          text-align: center;
+        }
+       
+        
+        /* Then style the iframe to fit in the container div with full height and width */
+        .responsive-iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+        }
         /* iframe main container  ******************************/
         .my-iframe-container {
           width: 100%;
         }
         .my-iframe-container2 {
+          width: 100%;
+        }
+        .my-iframe-container3 {
           width: 100%;
         }
       }
@@ -597,10 +757,18 @@
   <body>
     <nav>
       <header class="header">
-        <a href="index.html"
-          ><img src="images/logo.jpeg" alt="logo" class="logo" id="logo"
-        /></a>
-        <a href="" class="logo"></a>
+
+
+
+
+           
+    </div><!--- close logo container --->
+        <a href="index.html"><img src="images/logo4.jpg" alt="logo" class="logo" id="logo"/></a> 
+         <!--- end  logo --->
+
+         
+
+
         <input class="menu-btn toggler" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"
           ><span class="navicon"></span
@@ -686,9 +854,8 @@
             Information Technology program.
           </p>
           <p>
-            I'm versatile, I love challenges and am always learning something
-            new. I do my best to always be there for anyone who needs help or
-            wants to collaborate.
+            I'm versatile, love challenges and value collaborative teamwork.
+            new. I do my best to always be there for anyone who needs help.
           </p>
         </div>
         <!--- close box1 --->
@@ -759,6 +926,8 @@
             </ul>
           </ul>
         </div>
+
+       
         <!--- close box 3 --->
 
         <div class="text-box">
@@ -785,36 +954,14 @@
           <p>I am eligible for a security clearance.</p>
         </div>
         <!--- close box 5 --->
+
       </div>
       <!--- close main --->
     </div>
     <!--- close row --->
 
-    <div class="skills" id="skills">
-      <h2>Skills</h2>
-      <img
-        src="images/fccWebDesign.png"
-        style="
-          height: 300px;
-          width: 300px;
-          margin: 100px auto;
-          text-align: center;
-          display: block;
-        "
-      />
-    </div>
-
     <div class="projects" id="projects">
       <h2>Projects</h2>
-
-      <div class="my-iframe-container">
-        <iframe
-          class="my-iframe"
-          src="phone/phone.html"
-          title="CellPhone"
-        ></iframe>
-      </div>
-      <!--- close my-iframe-container --->
 
       <div class="my-iframe-container2">
         <iframe
@@ -824,26 +971,151 @@
         ></iframe>
       </div>
       <!--- close my-iframe-container --->
-    </div>
-    <!--- close projects --->
+
+
+      <div class="my-iframe-container2">
+        <iframe
+          class="my-iframe2 responsive-iframe"
+          src="form/formValidationNoImage.html"
+          title="Studio 4"
+        ></iframe>
+      </div>
+      <!--- close my-iframe-container --->
+
+
+      <div class="my-iframe-container2">
+        <iframe
+          class="my-iframe2 responsive-iframe"
+          src="edgarsFriends/index.html"
+          title="Cat Sitting Service"
+        ></iframe>
+      </div>
+      <!--- close my-iframe-container --->
+
+      <div class="my-iframe-container2">
+        <iframe
+          class="my-iframe2 responsive-iframe"
+          src="Studio4/index.html"
+          title="Studio 4"
+        ></iframe>
+      </div>
+      <!--- close my-iframe-container --->
+
+
+      <div class="text-box">
+
+
+       <h2 style="color: rgb(96, 28, 107);">ColdFusion Code Sample</h2>
+
+       <h3 style="color:rgb(70, 70, 71); text-align: center;">Authenticates User Login</h3>
+          <pre>
+            <div class="code">
+
+        &lt!--- 
+        This function checks the db to authenticate the user logging in. 
+        Checks if username entered exixts from form, then checks against
+        password.
+        If authentication passes session variables are set. 
+       If not, user is sent to error page 
+      ---&gt
+
+
+                      
+     &ltcfcomponent displayname="Authenticate" hint="Authenticates user login"&gt
+                      
+        &ltcffunction name="Login" hint="checks login entered, compares to db"&gt
+                          
+           &ltcfquery name= "Authenticate"  datasource = "#request.datasource#"&gt
+                SELECT
+                    hashPassword,
+                    saltPassword,
+                    userRole,
+                    user_ID
+               FROM
+                    Users
+              WHERE CFSQL
+                    userName = &lt cfqueryparam CFSQLType="CF_SQL_VARCHAR" 
+                    value= "#form.username#" &gt
+          &lt/cfquery&gt
+                        
+                      
+        &lt!--- Username doesn't exist, send to error page ---&gt
+           &ltcfif !Authenticate.recordcount>
+          &ltcflocation  url="error.cfm"  addtoken=false&gt
+          &ltcfif&gt
+                      
+                      
+        &lt!--- If username exists, now test to see if password passes -----&gt
+          &ltcfif Authenticate.hashPassword EQ hash(form.password & Authenticate.saltPassword, "SHA-512")&gt
+                        
+            &lt!--- user is authenticated, set the session variables ----&gt
+
+               &ltcfset Session.Auth = StructNew()&gt
+               &ltcfset Session.Auth.IsLoggedIn = "Yes"&gt
+               &ltcfset Session.Auth.UserID = Authenticate.user_ID&gt
+              &ltcfset Session.Auth.UserRole = Authenticate.userRole&gt
+              &ltcfset Session.Auth.userName = "#form.username#"&gt
+         
+                      
+          &ltcfelse&gt &lt!--- password failed, send to error page ---&gt
+              &ltcflocation  url="error.cfm" addtoken=false&gt
+          &lt/cfif&gt
+                      
+       &ltcfreturn Login &gt
+       &lt/cffunction&gt
+      &lt/cfcomponent&gt
+
+          </div>
+        </code>
+      </div><!--- close text box ------>
+
+    </div><!--- close projects ---
+    -------------------------------------------------------->
+
+    <div class="certifications" id="certfication">
+      <h2>Skills</h2>
+      <img
+        src="images/fccWebDesign.png"
+        style="
+          height: 300px;
+          width: 300px;
+          margin: 100px auto;
+          text-align: center;
+          display: block;"
+      />
+    </div><!--- close skills -------------->
+
+
+
+
 
     <div class="contact" id="contact">
       <h2>Contact Us</h2>
+      
 
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/Lamaree5.png" alt="photo of Laura" />
-          </div>
-          <div class="flip-card-back">
-            <h1>INSERT YOUR HEADER FOR BACK OF CARD HERE</h1>
-            <p>Include first sentence to appear on back of card</p>
-            <p>Include second sentence to appear on back of card</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!---- close contact section --->
+
+        <div class="logoContainer">
+
+            <div class="oneOut"></div>
+            <div class="oneIn"></div>
+          
+            <div class="twoOut"></div>
+            <div class="twoIn"></div>
+          
+            <div class="threeOut"></div>
+            <div class="threeIn"></div>
+          
+            <div class="fourOut"></div>
+            <div class="fourIn"></div>
+      
+      </div><!--- close logo container --->
+   
+
+    </div> <!---- close contact section --->
+
+
+
+
 
     <!-- Footer -->
     <div class="footer" id="contact">
