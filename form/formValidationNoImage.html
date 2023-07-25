@@ -1,0 +1,1099 @@
+<!---
+    Author: LamareeB.
+    Date: June, 2022 5:45pm
+    Purpose: form validation
+--->
+<!doctype html>
+<html lang="en">
+<head>
+<title>Form With Validation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Lamaree">
+<meta name="description" content="Form with validation">
+<meta name="copyright"content="LamareeB">
+<meta name="language" content="EN">
+<meta name="robots" content="index,follow">
+<meta name="revised" content="April 2022">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<!--- for the phone number dashes field --->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!---   icon for password eyeball -------------------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/******************************************/
+/* block browser defaults - Don't touch this */
+input,
+textarea {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+* {
+  border: none;
+}
+/* end block ****************************/
+/*****************************************/
+
+
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+:root {
+  --color-fieldsetBG: #2e3031;
+  --color-shadow: #00030a;
+  --color-white: white;
+  --color-formBG: transparent;
+}
+
+.container {
+  width:400px;
+  padding: 0;
+  margin: 50px auto;
+}
+.form {
+  max-width: 400px;
+  height: 1100px;
+  padding: 0px;
+  margin: 0px auto;
+  background: linear-gradient(146deg, rgba(69,97,124,1) 0%, rgba(255,255,255,1) 99%);
+  box-shadow:  14px 28px 14px rgba(0,0,0,0.25), 0 15px 15px rgba(52, 50, 50, 0.22); 
+  border: 1px solid rgb(66, 64, 64);
+}
+/* use this for image background if desired so that text isn't affected by opacity
+.form::before {
+    content: " ";
+    position: absolute;
+    width: 400px;
+    height: 1100px;
+    padding-top: 75px;
+    background: url('images/bg11.png');
+    opacity: 0.55;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size:cover;
+    object-fit:scale-down;
+    object-fit:contain;
+   
+}
+*/
+fieldset {
+   /*background-color: var(--color-fieldsetBG) !important;  */ 
+  width: 80%;
+  height: 1700px;
+  margin: auto;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+ 
+ legend {
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    background-color: rgba(69,97,124,1);
+    letter-spacing: 0.1em;
+    font-family: verdana, helvetica, sans-serif;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 2px solid white;
+    box-shadow: #555;
+    margin: 50px auto 50px auto;
+  }
+label {
+   font-family: Arial, Helvetica, sans-serif;
+   letter-spacing: 1px;
+   font-size: 1.0em;
+   color: black;
+   margin: 20px auto 0px auto;
+   text-align: left;
+   display: block;
+   width: 85%;
+ }
+
+
+ .dark-mode {
+  background-color: black;
+  color: white;
+}
+
+
+/* style all placeholders */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(88, 88, 88);
+  opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(88, 88, 88);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(88, 88, 88);
+}
+/*   End placeholder select style */
+
+input[type=text], 
+input[type=password], 
+input[type=email] {
+       background-color: white !important;
+       color: black;
+       font-family: Arial, Helvetica, sans-serif;
+       letter-spacing: 0.1em;
+       font-size: 1em;
+
+       width:85%;
+       padding: 10px 15px;
+       margin: 0px auto 0px auto;
+       display: block;
+
+       box-sizing: border-box;
+       border: 2px solid rgb(106, 104, 104);
+       border-radius: 4px;
+       
+       outline: none;
+             
+}
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus {
+  background-color: white;
+  color: black;
+  letter-spacing: 0.1em;
+  font-size: 1em;
+  box-sizing: border-box;
+  border: 2px solid blue;
+  border-radius: 4px;
+}
+textarea {
+  height:200px;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+  padding: 12px;
+  border: 2px solid rgb(106, 104, 104);
+  border-radius: 4px;
+  background-color:white;
+  resize: vertical;
+
+   width:85%;
+   padding: 10px 10px;
+   margin: 10px auto 0px auto;
+   display: block;
+ 
+}
+textarea:focus {
+  border: 2px solid blue;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+
+}
+
+
+
+
+/* Modern Browsers */
+textarea::placeholder {
+  letter-spacing: 0.1em;
+  font-size: 1em;
+  color: black;
+  
+}
+
+/* WebKit, Edge */
+textarea::-webkit-input-placeholder {
+  letter-spacing: 0.1em;
+  font-size: 1em;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Firefox 4-18 */
+textarea:-moz-placeholder {
+  font-size: 1rem;
+  color: black;
+}
+/* Firefox 19+ */
+textarea::-moz-placeholder {
+  font-size: 1rem;
+  color: gray;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+}
+/* IE 10-11 */
+textarea:-ms-input-placeholder {
+  font-size: 1rem;
+  color: gray;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+}
+
+/* Edge */
+textarea::-ms-input-placeholder {
+  font-size: 1rem;
+  color: gray;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+}
+
+
+input[type=submit], 
+input[type=reset], 
+input[type=button] {
+         color: white;
+         font-size: 1.2em;
+         font-family: Arial, Helvetica, sans-serif;
+         letter-spacing: 1px;
+         width: 90%;
+         padding: 16px 20px;
+         border: 2px solid rgb(67, 64, 66);
+         border-radius: 4px;
+         background-color: rgb(60, 60, 92);
+         margin: 45px auto 100px auto;
+        
+}
+
+input[type=submit]:hover,
+input[type=reset]:hover, 
+input[type=button]:hover {
+
+ border: 2px solid white;
+ color: white;
+ background-color:rgb(35, 35, 84);
+ }
+
+select { 
+    width:85%;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.1em;
+    padding: 10px 15px;
+    border: 2px solid rgb(106, 104, 104);
+    border-radius: 4px;
+    background-color: white;
+    color: black !important;
+    resize: vertical;
+    width:85%;
+   
+    margin: 10px auto 0px auto;
+    display: block;
+}
+
+
+
+
+
+/* style for placeholder for dropdown select */
+select:required:invalid {
+        color: rgb(88, 88, 88);
+      }
+      option[value=""][disabled] {
+        display: none;
+      }
+      option {
+        color: rgb(88, 88, 88);
+      }
+      /* End style for placeholder select */
+
+select:focus {
+  border: 2px solid blue;
+  background-color: white;
+  color: black;
+}
+select.selectMulti {
+  width: 80%;
+  height: 75px;
+  padding: 10px 15px;
+  background-color: white;
+
+}
+
+/*
+input[type="checkbox"]{
+  display: block;
+  position: relative;
+  border: black 1.5px solid;
+  width: 3em;
+  height: 3rem;
+  background-color: white;
+  padding: 10px;
+  accent-color: rgb(8, 225, 8);
+  appearance: checkbox !important; /* force it to appear/override none 
+}
+*/
+
+
+
+
+input[type="radio"] {
+  border-radius: 50%;
+  background-color: white;
+}
+input[type="radio"]:checked {
+  background-color: lime;
+}
+
+option {
+    background-color: white;
+    width:100%;
+    border-radius: 4px;
+    color: black;
+}
+
+
+
+
+
+/* these are for output of checkbox items */
+.checkbox{
+  background-color:rgb(26, 52, 86);
+  vertical-align:bottom;
+  width: 95%;
+  display: flex;
+  align-items: center;
+ }
+ input[type="checkbox"] {
+  width: 1.5em;
+  height: 1.5rem;
+  accent-color: rgb(8, 225, 8);
+}
+label.checkbox { /* affects only the text size but wraps checkbox and text */
+  font-size: 1.4em;
+  color: white;
+  margin-top:5px;
+  margin-bottom: 5px;
+  padding:5px;
+}
+.checkboxOptions {
+  margin-bottom: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* style all placeholders */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(88, 88, 88);
+  opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(88, 88, 88);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(88, 88, 88);
+}
+/*   End placeholder select style */
+
+
+/* style the error messages */
+span {
+  
+  font-family: Arial, Helvetica, sans-serif;
+ 
+}
+
+
+.correct {
+  background-image: url('/images/correct.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right; 
+  border-color:green;
+  border-width:2px;
+}
+.error {
+  background-image: url("remove.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right; 
+  border-color:green;
+  border-width:2px;
+}
+
+i {
+    margin-left: 220px;
+    margin-top: -30px;
+    position: absolute;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+i {
+    cursor: pointer;
+    color: black;
+   
+} 
+.form {
+  width:400px;
+  margin: auto;
+}}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+i {
+    cursor: pointer;
+    color: black;
+  
+} 
+.form {
+  width: 400px;
+  margin: auto;
+}
+} 
+</style>
+</head>
+
+
+
+  <!--- set var paths for input icons --->
+<cfset correct = ImageNew("correct.png")>
+<cfset wrong = ImageNew("remove.png")>
+
+ 
+ 
+<div class="container">
+      
+<form action="formValidationNoImage.html" method="post" id="form" name="form" class="form" onsubmit = "return validateFormSubmit();">
+
+      <!--- reset /clear the fields
+      <script type="text/javascript">
+        document.getElementById("validateForm").reset();
+      </script>
+-->
+
+
+  <div class="center">
+    <fieldset>
+
+
+    <div><!---  oninput = "validateName(uName)"--->
+      <legend>Form</legend>
+      <label for="uName">User Name</label>
+        <input type="text" name="uName" id="uName" 
+                
+                autocomplete="off"
+                placeholder = "username"  
+                onfocus = "this.placeholder = ''"
+                maxlength="20"
+                value=""
+                onkeyup="setTimeout(validateName, 1500);"
+                
+              >
+        <span id="uNameError" style="display: none;">
+          * Username must have minimum of 8 characters.
+        </span>
+    </div>
+
+
+
+
+
+ 
+    <div><!--- oninput = "validatePassword(password)" --->
+     <label for="password">Password</label>
+                    <!--- <i class="fa fa-key icon"></i> --->
+      <input type="password" name="password" id="password"
+              
+              autocomplete="off"
+              placeholder = "password" 
+              onfocus = "this.placeholder = ''"
+              value=""
+              maxlength="20"
+              onkeyup="setTimeout(validatePassword, 1500);">
+
+            <!--- hide show password eyeball-->
+        <span class="eye">
+              <i class="far fa-eye" id="togglePassword" aria-hidden="true"></i> 
+        </span>
+
+
+           <span id="passwordError" style="display: none;">
+            * Password requires 8 characters including:
+          1 uppercase letter, 1 number and 1 special character.
+        </span>
+           
+    </div>
+ 
+
+
+
+
+
+    <div><!---  oninput = "validateEmail(email)" --->
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" 
+               
+               autocomplete="off"
+               placeholder = "email"
+               onfocus = "this.placeholder = ''"
+               maxlength="35"
+              
+               onkeyup="setTimeout(validateEmail, 1500);">
+        <span id="emailError" style="display: none;">
+           * Enter a valid email address.
+        </span>
+    </div>
+
+
+
+  <div>
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" 
+                
+               autocomplete="off"
+               onfocus= "this.placeholder = ''" 
+               oninput = "validatePhone(phone)"
+               placeholder = "xxx-xxx-xxxx" 
+               maxlength="12">
+        <span id="phoneError" style="display: none;">
+           * Enter a 10 digit phone number.
+        </span>
+    </div>
+
+
+
+
+
+
+  
+    <div>
+      <label for="role">Role</label>
+       <select name="role" id="role"
+                
+                autocomplete="off"
+                onfocus = "validateSelect(role)"
+                onblur = "validateSelect(role)"
+                onclick = "validateSelect(role)">
+           <option value="" disabled invalid selected> -- Select a Role -- </option>
+           <option value="Admin">Admin</option>
+           <option value="poweruser">Power User</option>
+           <option value="user">user</option>
+       </select>
+          <span id="roleError" style="display:none;">
+          * Role selection is required.
+        </span>
+   </div>
+
+
+<!--- oninput = "validateSubject(subject)"-->
+
+  <div>  
+    <label for="subject">Message</label>
+       <textarea id="subject" name="subject" 
+              
+              autocomplete = "off"
+              placeholder = "message..."
+              onfocus = "this.placeholder = ''"
+              onkeyup = "setTimeout(validateSubject, 5000), countChars(this);"
+              maxlength = "250"></textarea>
+              
+        <span id="subjectError" style="display:none;">
+          * A valid message is required, 25 character minimum.
+        </span>
+        <p id="message"></p>
+ </div>
+ <!--- onkeyup = "countChars(this);"-->
+   
+      <input class="button" type="submit" id="submit" name="submit" value="Submit">
+   
+
+     </fieldset>
+    </div><!---- close center--->
+   <form>
+    
+
+
+
+  </div><!--- close container --->
+</body>
+</html>
+
+
+
+
+<script>//add dashes to phonenumber input as user types
+  $('#phone').keyup(function(){
+  adddashes(this);
+});
+
+function adddashes(el){
+  let val = $(el).val().split('-').join('');      //remove all dashes (-)
+  if(val.length < 9){
+    let finalVal = val.match(/.{1,3}/g).join('-'); //add dash (-) after every 3rd char.
+    $(el).val(finalVal);
+  }
+}
+</script>
+
+
+
+
+
+
+
+<!--- eyball turn password on / off ------------->
+<script>
+  const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<!--- count the remaining characters in textarea input field and display them in the <p id="message">--------->
+<script>
+  function countChars(obj){
+      document.getElementById("message").innerHTML = 250 - obj.value.length + ' characters left. ';
+      document.getElementById("message").style.padding = "5px 15px";
+      document.getElementById("message").style.backgroundColor = "#2e3436";
+      document.getElementById("message").style.color = "white";
+      document.getElementById("message").style.width = "85%";
+      document.getElementById("message").style.margin = "auto";
+      document.getElementById("message").style.fontSize = "0.9rem";
+  }
+</script>
+  
+
+
+
+
+
+
+
+<!---- validate the form on submit --------------------------------------------->
+  <script type="text/javascript">
+   function validateFormSubmit() {
+            
+       let uName = document.form.uName.value.trim();
+       let regPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,25}$/;
+       let regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,25}))$/;
+
+         if( document.form.uName.value === "" || 
+             document.form.uName.value.trim().length <8 ) {
+            alert( "Username must have at least 8 characters." );
+            uName.focus();
+            return false;
+         }
+        if( document.form.password.value === "" || 
+            document.form.password.value.length <8 || 
+            regPassword.test(document.form.password.value.trim()) == false) {
+           alert( "Password must have at least 8 characters. Including 1 upper, 1 lower, 1 number and 1 symbol" );
+           password.focus();
+           return false;
+        }
+        if( document.form.email.value === "" || 
+            document.form.email.value.length <8 || 
+            regEmail.test(document.form.email.value.trim()) == false) {
+            alert( "Valid email is required" );
+            email.focus();
+            return false;
+        }
+         if( document.form.phone.value === "" || document.form.phone.value.length <12 ) {
+            alert( "Phone number is required." );
+            phone.focus();
+            return false;
+         }
+         if( document.form.role.value === "" ) {
+            alert( "Role is required." );
+            role.focus();
+            return false;
+         }
+         if( document.form.subject.value === "" || document.form.subject.value.length <25 ) {
+            alert( "A message is required. It must be at least 25 characters." );
+            subject.focus();
+            return false;
+         }
+        }
+
+</script>
+
+        
+
+
+
+
+
+
+
+
+<!---// Validate Name -->
+<script>
+  
+   function validateName(uName) {
+   //Validation allows letters and numbers
+   var na = /[0-9a-zA-Z].{7,20}$/; 
+    // Check input
+   if (na.test(document.getElementById('uName').value)) {
+   //Do this if name is ok
+   document.getElementById("uName").style.backgroundColor ="white";
+   document.getElementById("uName").style.color="black";
+   // Hide error prompt
+   document.getElementById("uNameError").style.display = "none";
+   document.getElementById("uName").style.backgroundColor ="white";
+   document.getElementById("uName").style.backgroundImage = "url('images/correct.png')";
+   document.getElementById("uName").style.backgroundSize ="20px 20px"; 
+   document.getElementById("uName").style.backgroundPosition = "98% 50%";
+   document.getElementById("uName").style.backgroundRepeat = "no-repeat";
+   document.getElementById("uName").style.border = "limegreen solid 2.0px";
+  
+   return true;
+   }else{
+   //Do this if name isn't valid
+   
+   document.getElementById("uName").style.backgroundColor ="white";
+   document.getElementById("uName").style.color="black";
+
+   document.getElementById("uName").style.backgroundImage = "url('images/remove.png')";
+   document.getElementById("uName").style.backgroundSize ="20px 20px"; 
+   document.getElementById("uName").style.backgroundPosition = "98% 50%";
+   document.getElementById("uName").style.backgroundRepeat = "no-repeat";
+   document.getElementById("uName").style.border = "red solid 2.0px";
+    // Show error message and icon
+    // Style the Error Message
+   document.getElementById("uNameError").style.display = "block";
+   document.getElementById("uNameError").style.color ="black";
+   document.getElementById("uNameError").style.fontSize = "0.9rem";
+   document.getElementById("uNameError").style.padding = "5px 5px";
+   document.getElementById("uNameError").style.width =  "85%";
+   document.getElementById("uNameError").style.margin = "auto";
+   document.getElementById("uNameError").style.marginTop = "2px";
+   document.getElementById("uNameError").style.backgroundColor = "white";
+   document.getElementById("uNameError").style.border = "red 1.0px solid";
+   document.getElementById("uNameError").style.borderRadius = "3px"; 
+   document.getElementById("uNameError").style.padding = "10px"; 
+
+   
+  // Style the text box
+   
+   
+   return false;
+   }
+   }
+</script>
+
+
+
+<!--- // Validate Password --->
+<script>
+   
+   function validatePassword(password) {
+    //allows letters, numbers and symbols, minimum of 8 chars.
+    // Requires letters with at least 1 upper, 1 lower, 1 number and 1 symbol.
+    var pass = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,25}$/;
+  
+   // Check input
+   if (pass.test(document.getElementById('password').value)) {
+   // Style if entering or if okay
+   document.getElementById("password").style.background ="white";
+   document.getElementById("password").style.color="black";
+   // Hide error prompt
+   document.getElementById("passwordError").style.display = "none";
+   document.getElementById("password").style.backgroundImage = "url('images/correct.png')";
+   document.getElementById("password").style.backgroundSize="20px 20px"; 
+   document.getElementById("password").style.backgroundPosition = "98% 50%";
+   document.getElementById("password").style.backgroundRepeat = "no-repeat";
+   document.getElementById("password").style.border = "limegreen solid 2.0px";
+   
+   return true;
+   }else{
+    // do this if password isn't valid
+   document.getElementById("password").style.background ="white";
+   document.getElementById("password").style.color="black";
+
+   document.getElementById("password").style.backgroundImage = "url('images/remove.png')";
+   document.getElementById("password").style.backgroundSize ="20px 20px"; 
+   document.getElementById("password").style.backgroundPosition = "98% 50%";
+   document.getElementById("password").style.backgroundRepeat = "no-repeat"; 
+   document.getElementById("password").style.border = " 2.0px solid red";
+    // Style span block --- Show error message
+   document.getElementById("passwordError").style.display = "block";
+   document.getElementById("passwordError").style.color = "black";
+   document.getElementById("passwordError").style.fontSize = "0.9rem";
+   document.getElementById("passwordError").style.padding = "5px 5px";
+   document.getElementById("passwordError").style.width =  "85%";
+   document.getElementById("passwordError").style.margin = "auto";
+   document.getElementById("passwordError").style.backgroundColor = "white";
+   document.getElementById("passwordError").style.border = "red 1px solid";
+   document.getElementById("passwordError").style.borderRadius = "3px"; 
+   document.getElementById("passwordError").style.padding = "10px"; 
+   
+   return false;
+   }
+   }
+  </script>
+
+
+
+<script>
+   // Validate email
+   function validateEmail(email) {
+   var em = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,25}))$/;
+   if (em.test(document.getElementById('email').value)) {
+   
+   document.getElementById("email").style.background = "white"; 
+   document.getElementById("email").style.color = "black";
+   // Hide error message
+   document.getElementById("emailError").style.display = "none";
+   document.getElementById("email").style.backgroundImage = "url('images/correct.png')";
+   document.getElementById("email").style.backgroundSize = "20px 20px"; 
+   document.getElementById("email").style.backgroundPosition = "98% 50%";
+   document.getElementById("email").style.backgroundRepeat = "no-repeat";
+   document.getElementById("email").style.borderColor = "limegreen";
+   document.getElementById("email").style.borderWidth = "2.0px";
+   return true;
+   }else{
+   document.getElementById("email").style.background = "white";
+   document.getElementById("email").style.color = "black";
+   document.getElementById("email").style.backgroundImage = "url('images/remove.png')";
+   document.getElementById("email").style.backgroundSize = "20px 20px"; 
+   document.getElementById("email").style.backgroundPosition = "98% 50%";
+   document.getElementById("email").style.backgroundRepeat = "no-repeat";
+   document.getElementById("email").style.borderColor = "red solid 2.0px"; 
+   
+   // Show error message
+   document.getElementById("emailError").style.display = "block";
+   document.getElementById("emailError").style.color = "black";
+   document.getElementById("emailError").style.fontSize = "0.9rem";
+   document.getElementById("emailError").style.padding = "5px 5px";
+   document.getElementById("emailError").style.width =  "85%";
+   document.getElementById("emailError").style.margin = "auto";
+   document.getElementById("emailError").style.backgroundColor = "white";
+   document.getElementById("emailError").style.border = "red 1px solid";
+   document.getElementById("emailError").style.borderRadius = "3px"; 
+   document.getElementById("emailError").style.padding = "10px"; 
+  
+   return false;
+   }
+   }
+</script>
+
+
+<script>
+  // Validate phone
+   function validatePhone(phone) {
+   //Validation 
+   //var re = /[a-zA-Z 0-9].{4,20}$/;
+   //^\d{3}\.\d{3}\.\d{4}$ xxx-xxx-xxxx
+   var p = /^\d{3}-\d{3}-\d{4}$/;
+   // Check input
+   if (p.test(document.getElementById('phone').value)) {
+   //Do this if phone is ok
+   document.getElementById("phone").style.background = "white";
+   document.getElementById("phone").style.color = "black";
+     // Hide error prompt
+   document.getElementById("phoneError").style.display = "none";
+   document.getElementById("phone").style.backgroundImage = "url('images/correct.png')";
+   document.getElementById("phone").style.backgroundSize = "20px 20px"; 
+   document.getElementById("phone").style.backgroundPosition = "98% 50%";
+   document.getElementById("phone").style.backgroundRepeat = "no-repeat";
+   document.getElementById("phone").style.borderColor = "limegreen";
+   document.getElementById("phone").style.borderWidth = "2.0px";
+   return true;
+   }else{
+   //Do this if phone isn't valid
+   document.getElementById("phone").style.background = "white";
+   document.getElementById("phone").style.color =" black";
+   document.getElementById("phone").style.backgroundImage = "url('images/remove.png')";
+   document.getElementById("phone").style.backgroundSize = "20px 20px"; 
+   document.getElementById("phone").style.backgroundPosition = "98% 50%";
+   document.getElementById("phone").style.backgroundRepeat = "no-repeat";
+   document.getElementById("phone").style.borderColor = "red solid 2.0px";
+   
+    // Show error message and icon
+   document.getElementById("phoneError").style.display = "block";
+   document.getElementById("phoneError").style.color = "black";
+   document.getElementById("phoneError").style.fontSize = "0.9rem";
+   document.getElementById("phoneError").style.padding = "5px 5px";
+   document.getElementById("phoneError").style.width =  "85%";
+   document.getElementById("phoneError").style.margin = "auto";
+   document.getElementById("phoneError").style.backgroundColor = "white";
+   document.getElementById("phoneError").style.border = "red 1px solid";
+   document.getElementById("phoneError").style.borderRadius = "3px"; 
+   document.getElementById("phoneError").style.padding = "10px"; 
+  
+   return false;
+   }
+   }
+</script>
+
+
+
+<script>
+  // Validate Select box
+function validateSelect(role) {
+var xx = document.getElementById("role").value;
+    if (xx != "") { 
+  //input is valid // if  role not equal to blank
+  document.getElementById("role").style.background = "white";
+  document.getElementById("role").style.color = "black";
+  //hide error message
+  document.getElementById("roleError").style.display = "none";
+  document.getElementById("role").style.backgroundImage = "url('images/correct.png')";
+  document.getElementById("role").style.backgroundSize = "20px 20px"; 
+  document.getElementById("role").style.backgroundPosition = "98% 50%";
+  document.getElementById("role").style.backgroundRepeat = "no-repeat";
+  document.getElementById("role").style.borderColor = "limegreen";
+  document.getElementById("role").style.borderWidth = "2.0px";
+  return true;
+  }else{
+  document.getElementById("role").style.background ="white";
+  document.getElementById("role").style.color = "black";
+  document.getElementById("role").style.backgroundImage = "url('images/remove.png')";
+  document.getElementById("role").style.backgroundSize = "20px 20px"; 
+  document.getElementById("role").style.backgroundPosition = "98% 50%";
+  document.getElementById("role").style.backgroundRepeat = "no-repeat";
+  document.getElementById("role").style.borderColor = "red solid 2px"; 
+     //Show error message
+  document.getElementById("roleError").style.display = "block";
+  document.getElementById("roleError").style.color = "black";
+  document.getElementById("roleError").style.fontSize = "0.9rem";
+  document.getElementById("roleError").style.padding = "5px 5px";
+   document.getElementById("roleError").style.width =  "85%";
+   document.getElementById("roleError").style.margin = "auto";
+   document.getElementById("roleError").style.backgroundColor = "white";
+   document.getElementById("roleError").style.border = "red 1px solid";
+   document.getElementById("roleError").style.borderRadius = "3px"; 
+   document.getElementById("roleError").style.padding = "10px"; 
+  return false;
+  }
+}
+</script>
+
+
+
+
+
+<script>
+  // Validate Name
+   function validateSubject(subject) {
+   //Validation allows letters and numbers
+   //minimum of 5 max of (4 means 5)
+   var na = /[0-9a-zA-Z].{24,150}$/;
+   // Check input
+   if (na.test(document.getElementById('subject').value)) {
+   //Do this if input is ok
+   document.getElementById("subject").style.backgroundColor = "white";
+   document.getElementById("subject").style.color = "black";
+   
+     // Hide error prompt
+   document.getElementById("subjectError").style.display = "none";
+   document.getElementById("subject").style.backgroundColor = "white";
+   document.getElementById("subject").style.backgroundImage = "url('images/correct.png')";
+   document.getElementById("subject").style.backgroundSize = "20px 20px"; 
+   document.getElementById("subject").style.backgroundPosition = "98% 90%";
+   document.getElementById("subject").style.backgroundRepeat = "no-repeat";
+   document.getElementById("subject").style.borderColor = "limegreen";
+   document.getElementById("subject").style.borderWidth = "2.0px";
+   return true;
+   }else{
+   //Do this if input isn't valid
+   document.getElementById("subject").style.backgroundColor = "white";
+   document.getElementById("subject").style.color = "black";
+
+   document.getElementById("subject").style.backgroundColor = "white";
+   document.getElementById("subject").style.backgroundImage = "url('images/remove.png')";
+   document.getElementById("subject").style.backgroundSize = "20px 20px"; 
+   document.getElementById("subject").style.backgroundPosition = "98% 90%";
+   document.getElementById("subject").style.backgroundRepeat = "no-repeat";
+   document.getElementById("subject").style.borderColor = "red";
+   document.getElementById("subject").style.borderWidth = "2.0px";
+    // Show error message and icon
+    // Style the Error Message
+   document.getElementById("subjectError").style.display = "block";
+   document.getElementById("subjectError").style.color = "black";
+   document.getElementById("subjectError").style.fontSize = "1rem";
+   document.getElementById("subjectError").style.width =  "85%";
+   document.getElementById("subjectError").style.margin = "auto";
+   document.getElementById("subjectError").style.backgroundColor = "white";
+   document.getElementById("subjectError").style.border = "red 1px solid";
+   document.getElementById("subjectError").style.borderRadius = "3px"; 
+   document.getElementById("subjectError").style.padding = "10px"; 
+   return false;
+   }
+   }
+</script>
+
+
+
+<script>
+//turn on / off password visibility checkbox
+  function showPassword() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    } 
+  </script>
+
+  
+
+
+
+
+
+
+
+
+
+
+<!----confirm deletion of record --->
+
+<script type="text/javascript"> 
+  $(document).ready(function() {
+     $("body").on('click','#formSubmit',function(e){
+        
+         e.preventDefault();
+         var answer = confirm("Are you sure you want to delete this item?");
+         if (answer){
+             $("#validateForm").submit();
+         } else {
+             return false;
+         }
+     });
+  });
+</script> 
