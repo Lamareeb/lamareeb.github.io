@@ -123,7 +123,7 @@
       }
       .header li a:hover,
       .header .menu-btn:hover {
-        background-color: var(--light-gray);
+        background-color: var(--bodyBackground);
         color: var(--darkText);
       }
 
@@ -426,25 +426,46 @@
         margin: auto;
       }
 
+
+
+
+
       .projects {
         width: 100%;
         background-color: rgb(119, 98, 85);
         padding: 5px;
         margin: 0px;
       }
-      pre {
-        overflow: scroll;
-      }
-      
+
 
       .projects h2 {
-        color: white;
-        font-size: 1.5rem;
+        color: var(--goldAccent);
+        font-size: 2rem;
         text-align: center;
         padding-top: 50px;
         padding-bottom: 50px;
         margin: auto;
       }
+      .projects h3 {
+        color: rgb(234, 234, 228);
+        font-size: 1.5rem;
+        text-align: center;
+        padding-top: 100px;
+        margin: auto;
+      }
+      code {
+        width: 600px;
+      }
+      pre {
+        color: black;
+        margin: auto;
+        overflow: scroll;
+        background-color: rgb(244, 244, 248);
+        width:600px;
+        overflow:scroll"
+      }
+      
+
 
 
       /* iframe main container  ******************************/
@@ -527,6 +548,13 @@
         width: 100%;
         height: 100%;
       }
+
+
+
+
+
+
+
       .contact {
         width: 100%;
         height: 700px;
@@ -539,6 +567,11 @@
         padding-top: 100px;
         margin: auto;
       }
+
+
+
+
+
 
       /* Footer */
       .footer {
@@ -641,14 +674,18 @@
      border: 1px solid black;
      background-color: white;
      
-     
-
      margin-top: 1px;
      position: absolute;
      z-index: 7;
 
  }
  /* END logo styles ************************************/
+
+
+
+
+
+
 
       /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
       @media screen and (max-width: 700px) {
@@ -963,6 +1000,7 @@
     <div class="projects" id="projects">
       <h2>Projects</h2>
 
+      <h3>Mock Phone</h3>
       <div class="my-iframe-container2">
         <iframe
           class="my-iframe2"
@@ -972,12 +1010,12 @@
       </div>
       <!--- close my-iframe-container --->
 
-
+      <h3>Form With Validation</h3>
       <div class="my-iframe-container2">
         <iframe
           class="my-iframe2 responsive-iframe"
           src="form/formValidationNoImage.html"
-          title="Studio 4"
+          title="Form With Validation"
         ></iframe>
       </div>
       <!--- close my-iframe-container --->
@@ -1008,16 +1046,18 @@
        <h2 style="color: rgb(96, 28, 107);">ColdFusion Code Sample</h2>
 
        <h3 style="color:rgb(70, 70, 71); text-align: center;">Authenticates User Login</h3>
+       <div>
           <pre>
-            <div class="code">
+           
 
-        &lt!--- 
-        This function checks the db to authenticate the user logging in. 
-        Checks if username entered exixts from form, then checks against
-        password.
-        If authentication passes session variables are set. 
-       If not, user is sent to error page 
-      ---&gt
+    &lt!--- 
+    This function checks the db to authenticate the user attempting to log in. 
+    It first checks if username entered in form exists in the database. If it does,
+    it then checks validity of the password.
+    If authentication passes, session variables are set, and user can access 
+    pages/sections they are authorized to see. 
+    If authentication fails, user is sent to error page.
+        ---&gt
 
 
                       
@@ -1026,26 +1066,28 @@
         &ltcffunction name="Login" hint="checks login entered, compares to db"&gt
                           
            &ltcfquery name= "Authenticate"  datasource = "#request.datasource#"&gt
-                SELECT
+               SELECT
                     hashPassword,
                     saltPassword,
                     userRole,
                     user_ID
                FROM
                     Users
-              WHERE CFSQL
-                    userName = &lt cfqueryparam CFSQLType="CF_SQL_VARCHAR" 
-                    value= "#form.username#" &gt
+               WHERE 
+                   CFSQL userName = &lt cfqueryparam CFSQLType="CF_SQL_VARCHAR" value= "#form.username#" &gt
           &lt/cfquery&gt
                         
                       
         &lt!--- Username doesn't exist, send to error page ---&gt
-           &ltcfif !Authenticate.recordcount>
-          &ltcflocation  url="error.cfm"  addtoken=false&gt
-          &ltcfif&gt
+
+            &ltcfif !Authenticate.recordcount>
+               &ltcflocation  url="error.cfm"  addtoken=false&gt
+            &ltcfif&gt
                       
                       
+
         &lt!--- If username exists, now test to see if password passes -----&gt
+
           &ltcfif Authenticate.hashPassword EQ hash(form.password & Authenticate.saltPassword, "SHA-512")&gt
                         
             &lt!--- user is authenticated, set the session variables ----&gt
@@ -1053,21 +1095,25 @@
                &ltcfset Session.Auth = StructNew()&gt
                &ltcfset Session.Auth.IsLoggedIn = "Yes"&gt
                &ltcfset Session.Auth.UserID = Authenticate.user_ID&gt
-              &ltcfset Session.Auth.UserRole = Authenticate.userRole&gt
-              &ltcfset Session.Auth.userName = "#form.username#"&gt
-         
-                      
+               &ltcfset Session.Auth.UserRole = Authenticate.userRole&gt
+               &ltcfset Session.Auth.userName = "#form.username#"&gt
+                               
+
           &ltcfelse&gt &lt!--- password failed, send to error page ---&gt
               &ltcflocation  url="error.cfm" addtoken=false&gt
           &lt/cfif&gt
                       
-       &ltcfreturn Login &gt
+
+        &ltcfreturn Login &gt
        &lt/cffunction&gt
       &lt/cfcomponent&gt
 
-          </div>
-        </code>
-      </div><!--- close text box ------>
+    </pre>
+        
+   </div><!--- close text box ------>
+
+
+
 
     </div><!--- close projects ---
     -------------------------------------------------------->
