@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--- w3 include for flip animation---->
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
-
     <!--- font awesome icons --->
     <script
       src="https://kit.fontawesome.com/30a03930ff.js"
@@ -70,7 +69,7 @@
       }
       :root {
         --main-white: rgb(248, 244, 244);
-        --dark-white: rgb(250, 246, 246);
+        --dark-white: rgb(252, 248, 248);
 
         --main-gray: #3b3f44;
         --light-gray: rgb(226, 226, 232);
@@ -440,31 +439,35 @@
 
       .projects h2 {
         color: var(--goldAccent);
-        font-size: 2rem;
+        font-size: 2.5rem;
         text-align: center;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        margin: auto;
+        padding: 25px;
+        width: 350px;
+        margin: 50px auto;
+        border: 1px solid white;
       }
       .projects h3 {
         color: rgb(234, 234, 228);
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         text-align: center;
         padding-top: 100px;
         margin: auto;
       }
-      code {
-        width: 600px;
-      }
+      
       pre {
         color: black;
-        margin: auto;
+        margin: 40px auto 40px auto;
         overflow: scroll;
         background-color: rgb(244, 244, 248);
-        width:600px;
-        overflow:scroll"
+        width:85%;
+        overflow:scroll;
+        margin-top: 50px;
       }
-      
+      .codebox 
+      {
+        margin-top: 150px;
+      }
+     
 
 
 
@@ -489,18 +492,22 @@
         height: 99%;
         padding: 0;
       }
-
+/* outer container of iframe */
       .my-iframe-container2 {
         position: relative;
         overflow: hidden;
         width: 60%;
         height: 600px;
         padding-top: 2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+        padding-bottom: 2%;
+
+       
+        margin-top: 20px;
+        margin-bottom: 20px;
         margin: auto;
-        padding-top: 10px;
-        margin-top: 30px;
-        margin-bottom: 150px;
+        
       }
+      /* inner container of iframe */
       .my-iframe2 {
         position: absolute;
         top: 0;
@@ -509,27 +516,11 @@
         right: 0;
         width: 100%;
         height: 99%;
+        border: none;
+       
       }
 
-      .my-iframe-container3 {
-        position: relative;
-        overflow: hidden;
-        width: 60%;
-        height: 600px;
-        padding-top: 2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-        margin: auto;
-        padding-top: 10px;
-        margin-top: 30px;
-      }
-      .my-iframe3 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 99%;
-      }
+      
       /* container for  iframe  */
       .container {
         position: relative;
@@ -706,27 +697,32 @@
         .main h3 {
           text-align: center;
         }
-       
+     
+      pre {
+       margin-top: 50px;
+       width:85%;
+       overflow:scroll;
+      }
         
-        /* Then style the iframe to fit in the container div with full height and width */
+        /*  style the iframe to fit in the container div with full height and width */
         .responsive-iframe {
           position: absolute;
           top: 0;
           left: 0;
           bottom: 0;
           right: 0;
-          width: 100%;
-          height: 100%;
+          width: 90%;
+          height: 900%;
         }
         /* iframe main container  ******************************/
         .my-iframe-container {
-          width: 100%;
+          width: 90%;
         }
         .my-iframe-container2 {
-          width: 100%;
+          width: 90%;
         }
         .my-iframe-container3 {
-          width: 100%;
+          width: 90%;
         }
       }
 
@@ -834,9 +830,10 @@
     <!-- The flexible grid (content) -->
     <div class="row">
       <div class="side">
-        <div class="imgBox">
-          <img src="images/Lamaree5.png" class="real" />
-        </div>
+        
+            <div class="imgBox">
+              <img src="images/Lamaree5.png" class="real" />
+            </div>
 
         <!----    <div class="myPic"></div>--->
         <h1 class="name">Laura Blankenship</h1>
@@ -871,7 +868,7 @@
       </div>
       <!--- close side --->
 
-      <div class="main">
+      <div class="main" id="about">
         <div class="text-box">
           <h1>About Me</h1>
 
@@ -901,6 +898,7 @@
           <h2>Positions Held</h2>
           <ul>
             <li>Programmer Analyst - 4 years</li>
+            <li>HRIS Specialist - 2 years</li>
             <li>Web Developer / Network Admin Assistant - 3 years</li>
             <li>PC Tech / Help Desk - 3 years</li>
             <li>Teaching Assistant - 2 years</li>
@@ -997,30 +995,43 @@
     </div>
     <!--- close row --->
 
+
+
+
+
+
+
     <div class="projects" id="projects">
+
+
       <h2>Projects</h2>
 
       <h3>Mock Phone</h3>
+
+
+
       <div class="my-iframe-container2">
         <iframe
           class="my-iframe2"
           src="phone/phone.html"
           title="CellPhone"
+          scrolling: auto;
+          border:none;
         ></iframe>
       </div>
       <!--- close my-iframe-container --->
 
-      <h3>Form With Validation</h3>
+      <h3>Sample Form With Validation and Visual Cues</h3>
       <div class="my-iframe-container2">
         <iframe
-          class="my-iframe2 responsive-iframe"
+          class="my-iframe2"
           src="form/formValidationNoImage.html"
           title="Form With Validation"
         ></iframe>
       </div>
       <!--- close my-iframe-container --->
 
-
+<!---
       <div class="my-iframe-container2">
         <iframe
           class="my-iframe2 responsive-iframe"
@@ -1028,8 +1039,10 @@
           title="Cat Sitting Service"
         ></iframe>
       </div>
+      --->
       <!--- close my-iframe-container --->
 
+      <!---
       <div class="my-iframe-container2">
         <iframe
           class="my-iframe2 responsive-iframe"
@@ -1037,17 +1050,19 @@
           title="Studio 4"
         ></iframe>
       </div>
+      --->
       <!--- close my-iframe-container --->
 
 
-      <div class="text-box">
+      <div class="codebox">
 
 
-       <h2 style="color: rgb(96, 28, 107);">ColdFusion Code Sample</h2>
+       <h2>ColdFusion Code Sample</h2>
 
-       <h3 style="color:rgb(70, 70, 71); text-align: center;">Authenticates User Login</h3>
-       <div>
-          <pre>
+       <h3>Authenticates User Login</h3>
+      
+       
+    <pre>
            
 
     &lt!--- 
@@ -1112,14 +1127,18 @@
         
    </div><!--- close text box ------>
 
-
-
-
-    </div><!--- close projects ---
+ </div><!--- close projects ---
     -------------------------------------------------------->
 
+
+
+
+
+
+
+
     <div class="certifications" id="certfication">
-      <h2>Skills</h2>
+      <h2>Certification</h2>
       <img
         src="images/fccWebDesign.png"
         style="
@@ -1136,25 +1155,10 @@
 
 
     <div class="contact" id="contact">
-      <h2>Contact Us</h2>
+      <h2>Contact Me</h2>
       
 
 
-        <div class="logoContainer">
-
-            <div class="oneOut"></div>
-            <div class="oneIn"></div>
-          
-            <div class="twoOut"></div>
-            <div class="twoIn"></div>
-          
-            <div class="threeOut"></div>
-            <div class="threeIn"></div>
-          
-            <div class="fourOut"></div>
-            <div class="fourIn"></div>
-      
-      </div><!--- close logo container --->
    
 
     </div> <!---- close contact section --->
@@ -1163,11 +1167,11 @@
 
 
 
-    <!-- Footer -->
+    <!-- Footer 
     <div class="footer" id="contact">
       <h2>Footer</h2>
     </div>
-
+-->
     <!--- scroll to top --->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <script>
