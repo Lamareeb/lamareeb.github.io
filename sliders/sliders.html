@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="author" content="Laura Blankenship">
+ <meta name="description" content="CSS using calc to place moving objects in center no matter the screen size" />
+ <title>SLIDERS</title>
+<style>
+:root {
+ 
+ /* 
+ :Calculate the center of the screen: 
+ :get screen width, divide it by 2, subtract 50% to get the center 
+ */
+--positionTargetX: calc(100vw / 2 - 50%);
+}
+/* --------------------------------------------------- */
+* {
+  box-sizing: border-box;
+} 
+body {
+  background: goldenrod;
+  margin: 0;
+  padding: 0;
+ 
+}
+
+ .myBlob {
+   background-color: rgb(56, 54, 54);
+   font-family: "ROBOTO", sans-serif;
+   font-size: 0.75rem;
+   line-height: 65px;
+   color: white;
+   width: 250px;
+   height: 65px;
+   padding: 0 50px;
+   border-radius: 75px;
+   border: 0.5px solid black;
+   box-shadow: -15px 10px 14px 0 black inset;
+   animation-name: moveToCenter; /* call keyframes function */
+   animation-duration: 3s;
+   animation-timing-function: ease-in-out; /*  */
+  /* animation-delay: 5ms; */
+   
+   animation-fill-mode: forwards; /* stay in place after positioning */
+   justify-content: center;
+
+  
+ 
+}
+@keyframes moveToCenter{ /* name the keyframe function */
+           0% {
+          /*  transform: translateX(-400px); /* start offscreen/left */
+           /* -webkit-transform: translateX(-400px);
+            */
+            translate: -400px;
+      
+           }
+           100% {
+           /*  -webkit-transform: translateX(var(--positionTargetX));
+             transform: translateX(var(--positionTargetX));
+           */
+             translate: var(--positionTargetX);
+           }
+
+        }
+
+
+.blob1 {
+  animation-delay: 5ms;
+  margin-top:50px;
+  
+}
+.blob2 {
+  animation-delay: 200ms;
+  margin-top:8px;
+}
+.blob3 {
+  animation-delay: 300ms;
+  margin-top:9px;
+}
+.blob4 {
+  animation-delay: 400ms;
+  margin-top:10px;
+}
+.blob5 {
+  animation-delay: 500ms;
+  margin-top:11px;
+}
+       
+
+.myBlob a {
+    color:whitesmoke;
+    margin-left: 25px;
+    margin-top: 0px;
+    position: absolute;
+    letter-spacing: 2px;
+    text-decoration: none;
+    
+}
+.myBlob a:hover {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 0.5em;
+}
+
+.dog  {
+    float: left;
+    margin: 0px 10px 0 -50px;
+    height: 63.5px;
+    width: 65px;
+    border-radius: 50%;
+}
+.dogBone {
+  margin-top: 30;
+  margin-right: 10;
+  position:absolute;
+  display:inline-block;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid red;
+}
+.container {
+  border: 2px;
+ padding-top: 20px;
+}
+
+
+
+
+
+.ball {
+  width: 200px;
+  height: 200px;padding: 20px;
+  border-radius:50%;
+  margin-bottom: 100px;
+  background-color: rgb(233, 45, 220);
+  animation: loader 5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes loader {
+  0% {
+    translate: -300px 0px;
+    background-color: red;
+    border-radius:50%;
+  }
+  100%{
+    translate: var(--positionTargetX);
+    background-color: rgb(255, 0, 238);
+    border-radius:50%;
+      
+  }
+}
+
+</style>
+</head>
+<body>
+    
+
+
+  
+ <div class="container">
+
+
+    <div class="myBlob blob1">
+        <img src="dog.jpg" class="dog" alt="dog">
+       <a href="#">Treats</a> 
+     </div>
+
+
+    <div class="myBlob blob2">
+      <img src="20.jpg" class="dog" alt="dog">
+     <a href="#">Beds</a>  
+    </div>
+
+    <div class="myBlob blob3">
+      <img src="dog.jpg" class="dog" alt="dog">
+     <a href="#">Accessories</a>  
+    </div>
+
+    <div class="myBlob blob4">
+      <img src="dog.jpg" class="dog" alt="dog">
+     <a href="#">Grooming</a>  
+    </div>
+
+    <div class="myBlob blob5">
+      <img src="dog.jpg" class="dog" alt="dog">
+     <a href="#">More</a>  
+    </div>
+
+</div>
+
+</body>
+</html>
