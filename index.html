@@ -2,18 +2,23 @@
 <html lang="en">
   <meta charset="UTF-8" />
   <head>
-    <title>Laura Blankenship</title>
+    <title>Laura Blankenship - Web Application Developer</title>
+    <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon" /> 
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Laura Blankenship" />
+    <meta name="description" content="Web Developer Resume Website" />
+
     <!--- w3 include for flip animation---->
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <!--- font awesome icons --->
-    <script
-      src="https://kit.fontawesome.com/30a03930ff.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/30a03930ff.js" crossorigin="anonymous"></script>
     <!--- smooth scrolling ------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
     <!--- aos animate library links --->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -66,6 +71,8 @@
         padding: 0;
         background-color: var(--bodyBackground);
         font-family: Arial, Helvetica, sans-serif;
+
+        
       }
       :root {
         --main-white: rgb(248, 244, 244);
@@ -73,7 +80,7 @@
 
         --main-gray: #3b3f44;
         --light-gray: rgb(226, 226, 232);
-
+        
         --darkText: rgb(21, 21, 22);
         --light-text: rgb(76, 72, 72);
         --bodyBackground: rgb(232, 227, 227);
@@ -82,6 +89,7 @@
 
         --h2: rgb(229, 191, 42);
         --goldAccent: rgb(229, 191, 42);
+        --goldHover: gold;
        
  }
 
@@ -177,9 +185,7 @@
       }
       .header .menu-icon .navicon:before,
       .header .menu-icon .navicon:after {
-        background: var(
-          --main-gray
-        ); /* color for top and bottom lines of burger */
+        background: var(--main-gray); /* color for top and bottom lines of burger */
         content: "";
         height: 2px;
         display: block;
@@ -217,32 +223,34 @@
       }
       /*  End Menu Navigation */
 
-      /* Main content Column container */
-      .row {
+ /* Main content container */
+ .main {
         display: flex;
         flex-wrap: wrap;
-        margin: 50px auto;
+        margin: 50px auto 20px auto;
         width: 90%;
       }
 
-      /* Sidebar/left column */
-      .side {
+   /* Sidebar/left column */
+ .side {
         flex: 25%;
         background-color: var(--dark-white);
         padding: 0px;
-        margin-top: 25px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-top: 25px;
       }
 
       /* Main center column */
-      .main {
+ .center {
         flex: 65%;
         background-color: var(--bodyBackground);
         padding: 0;
-
         margin-top: 25px;
         margin-right: 40px;
         margin-left: 15px;
+        padding-bottom: 20px;
+  
+       
       }
       .main h1 {
         color: var(--goldAccent);
@@ -262,6 +270,7 @@
         font-size: 1.1em;
         color: var(--light-text);
         margin-left: 20px;
+        margin-top: 50px;
       }
       .main p {
         font-size: 1em;
@@ -269,12 +278,12 @@
         letter-spacing: 0.7px;
       }
       .main ul {
-        margin-top: 1px;
+        margin-top: 15px;
         margin-bottom: 20px;
         margin-left: 50px;
         list-style-type: disc;
         letter-spacing: 0.5px;
-      }
+       }
       .main li {
         font-size: 1em;
         font-family: "Roboto", sans-serif;
@@ -296,7 +305,11 @@
         margin-left: 30px;
         margin-right: 30px;
       }
-
+.education h4 {
+   text-align: center;
+   margin: 30px auto 30px 10px;
+   
+ }
       .center-text {
         text-align: center;
       }
@@ -429,43 +442,46 @@
 
 
 
-      .projects {
-        width: 100%;
-        background-color: rgb(119, 98, 85);
-        padding: 5px;
-        margin: 0px;
+.projects {
+       width: 100%;
+       background-color: rgb(77, 76, 76);
+       padding-top: 75px;
+       padding-bottom: 50px;
+        
       }
-
-
       .projects h2 {
         color: var(--goldAccent);
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         text-align: center;
-        padding: 25px;
-        width: 350px;
-        margin: 50px auto;
+        margin: 100px auto 50px auto;
+        width: 70%;
+        padding: 20px;
         border: 1px solid white;
+       
       }
       .projects h3 {
         color: rgb(234, 234, 228);
-        font-size: 1.7rem;
+        font-size: 1.4rem;
         text-align: center;
-        padding-top: 100px;
-        margin: auto;
+        padding: 20px 5px;
+        margin: 150px auto 50px;
+        width: 60%;
+        border-bottom: 1px solid white;
       }
       
       pre {
-        color: black;
+        color: rgb(0, 0, 0);
         margin: 40px auto 40px auto;
         overflow: scroll;
         background-color: rgb(244, 244, 248);
         width:85%;
         overflow:scroll;
-        margin-top: 50px;
+               
       }
       .codebox 
       {
-        margin-top: 150px;
+        margin: 150px auto;
+       
       }
      
 
@@ -475,12 +491,13 @@
       .my-iframe-container {
         position: relative;
         overflow: hidden;
-        width: 60%;
+        width: 300px;
         height: 600px;
         padding-top: 2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
         margin: auto;
-        padding-top: 10px;
+       
         margin-top: 30px;
+      
       }
       .my-iframe {
         position: absolute;
@@ -491,6 +508,8 @@
         width: 100%;
         height: 99%;
         padding: 0;
+        margin: auto;
+       
       }
 /* outer container of iframe */
       .my-iframe-container2 {
@@ -500,12 +519,8 @@
         height: 600px;
         padding-top: 2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
         padding-bottom: 2%;
-
+        margin: 5px auto 100px auto;
        
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin: auto;
-        
       }
       /* inner container of iframe */
       .my-iframe2 {
@@ -520,8 +535,40 @@
        
       }
 
+      /* form - outer container of iframe */
+      /* form */
+      .my-iframe-container3 {
+        position: relative;
+        overflow:hidden;
+        width: 60%;
+        height: 700px;
+        padding-top: 2%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+        padding-bottom: 2%;
+        margin: 5px auto 100px auto;
+               
+      }
+      /* inner container of iframe */
+      .my-iframe3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 99%;
+        
+      }
+input[type=button] {
+  padding: 20px;
+  background-color: white;
+  color: black;
+  font-size: 1em;
+  display: block;
+  margin: 15px auto;
+  text-align: center;
+}
       
-      /* container for  iframe  */
+ /* container for  iframe  */
       .container {
         position: relative;
         overflow: hidden;
@@ -542,40 +589,70 @@
 
 
 
+   
 
+footer {
+  background-color: rgb(77, 76, 76);
+  border: 1px black solid;
+ }
 
-
-
-      .contact {
-        width: 100%;
-        height: 700px;
-        background-color: rgb(69, 67, 66);
-      }
-      .contact h2 {
-        color: white;
-        font-size: 1.5rem;
+ footer h2 {
+  color: var(--goldAccent);
+  text-align: center;
+  margin: 150px auto 125px auto;
+  padding: 20px;
+  border: 1px solid white;
+  width: 70%;
+ }
+ footer p {
+  color: white;
+  text-align: center;
+  margin: 200px auto 10px auto;
+  padding:10px;
+  border: 1px solid white;
+  width: 70%;
+}
+ .footerIcons {
+        display: flex;
+        flex-direction: row;
+        margin: 10px auto 50px auto;
         text-align: center;
-        padding-top: 100px;
-        margin: auto;
-      }
+        padding: 20px;
+        justify-content: space-around;
+        width: 70%;
+              
+ }
+ .footerIcons:hover {
+  color: var(--goldAccent);
+ }
+ .footerIcons i {
+      margin-right: 1px;
+      color: whitesmoke;
+      padding: 10px;
+      margin-bottom: 15px;
+     
+}
+
+.footerIcons a {
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+      margin-right: 10px;
+      font-size: 1.3em;
+}
+.footerIcons a:hover {
+     color: var(--goldAccent);
+}
+footer i:hover {
+  color: var(--goldAccent);
+  color: gold;
+}
 
 
-
-
-
-
-      /* Footer */
-      .footer {
-        padding: 150px;
-        text-align: center;
-        background: #bba410;
-      }
 
 
 
       /* logo styles ********************************************/
-
-
  .oneOut {
      height: var(--heightOuter);
      width: var(--widthOuter);
@@ -679,14 +756,14 @@
 
 
       /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-      @media screen and (max-width: 700px) {
-        .row,
+  @media screen and (max-width: 700px) {
+        .main,
         .navbar {
           flex-direction: column;
         }
-
         .main {
-          margin: 10px auto;
+          margin: 50px auto 0px auto;
+         
         }
         .main ul {
           margin-left: 1px;
@@ -697,7 +774,9 @@
         .main h3 {
           text-align: center;
         }
-     
+     .center {
+      margin: 25px auto;
+     }
       pre {
        margin-top: 50px;
        width:85%;
@@ -712,7 +791,7 @@
           bottom: 0;
           right: 0;
           width: 90%;
-          height: 900%;
+          height: 100%;
         }
         /* iframe main container  ******************************/
         .my-iframe-container {
@@ -724,8 +803,16 @@
         .my-iframe-container3 {
           width: 90%;
         }
-      }
 
+
+.footerIcons {
+  width: 65%;
+}
+.footerIcons a {
+  font-size: 1em;
+  margin-right: 6px;
+      }
+    }
       /* 48em = 768px */
 
       @media (min-width: 768px) {
@@ -784,28 +871,69 @@
       #myBtn:hover {
         background-color: #dab317; /* Add a dark-grey background on hover */
       }
+
+
+      /* bubble in out */
+
+.bubble {
+  width: 80px;
+  height: 80px;
+  margin-top: 50px;
+  position: absolute;
+  border-radius: 20px;
+  background: rgb(84, 77, 77);
+  position: relative;
+
+  animation: myBubble 7s;
+  animation-iteration-count: 1;
+  animation-timing-function:ease-in-out;
+  animation-fill-mode: forwards;
+  
+  border: 2px lime solid;
+  
+}
+.bubble p {
+    color: limegreen;
+    text-align: center;
+    padding: 5px;
+    font-size: 1em;
+   
+}
+@keyframes myBubble {
+ 0% {
+    margin-left: -110px;
+    opacity: 0.5;
+}
+50% {
+   margin-left: 50px;
+    opacity: 1;
+}
+75% {
+    margin-left: 20px;
+   opacity: 1;
+}
+100% {
+    margin-left: -110px;
+    opacity: 0;
+}
+}
     </style>
   </head>
+  <body data-bs-spy="scroll" data-bs-target=".menu" data-bs-offset="50">
 
-  <body>
     <nav>
       <header class="header">
-
-
-
-
-           
-    </div><!--- close logo container --->
         <a href="index.html"><img src="images/logo4.jpg" alt="logo" class="logo" id="logo"/></a> 
-         <!--- end  logo --->
-
-         
+        <!--- end  logo --->
+    </div><!--- close logo container --->
+       
+       
 
 
         <input class="menu-btn toggler" type="checkbox" id="menu-btn" />
-        <label class="menu-icon" for="menu-btn"
-          ><span class="navicon"></span
-        ></label>
+        <label class="menu-icon" for="menu-btn">
+          <span class="navicon"></span>
+        </label>
         <ul class="menu">
           <li><a onclick="test()" href="index.html">Home</a></li>
           <li><a onclick="test()" href="#about">About</a></li>
@@ -827,8 +955,17 @@
     </div>
 ------>
 
+<!--- bubble that appears and disappears 
+<div class="bubble">
+  <p>
+      Available for Hire!
+  </p>
+</div>
+---->
+
     <!-- The flexible grid (content) -->
-    <div class="row">
+    <div class="main">
+
       <div class="side">
         
             <div class="imgBox">
@@ -863,12 +1000,12 @@
             <i class="fa-brands fa-codepen fa-xl"></i>
             CodePen
           </a>
-        </div>
-        <!--- close left container with menu boxes --->
-      </div>
-      <!--- close side --->
+        </div> <!--- close center bars/ menu boxes --->
+      </div> <!--- close side --->
+     
 
-      <div class="main" id="about">
+      <div class="center" id="about">
+
         <div class="text-box">
           <h1>About Me</h1>
 
@@ -888,8 +1025,8 @@
             Information Technology program.
           </p>
           <p>
-            I'm versatile, love challenges and value collaborative teamwork.
-            new. I do my best to always be there for anyone who needs help.
+            I'm versatile, love challenges, and value collaborative teamwork.
+            I do my best to be there for anyone who needs help.
           </p>
         </div>
         <!--- close box1 --->
@@ -903,8 +1040,7 @@
             <li>PC Tech / Help Desk - 3 years</li>
             <li>Teaching Assistant - 2 years</li>
           </ul>
-        </div>
-        <!--- close box 2--->
+        </div> <!--- close box 2--->
 
         <div class="text-box">
           <h2>Skills</h2>
@@ -960,10 +1096,7 @@
               <li>SQL Server</li>
             </ul>
           </ul>
-        </div>
-
-       
-        <!--- close box 3 --->
+        </div> <!--- close box 3 --->
 
         <div class="text-box">
           <h2>People Stuff</h2>
@@ -975,72 +1108,100 @@
               Always there for anyone who needs help or wants to collaborate
             </li>
             <li>I thrive on challenges and finding solutions</li>
-            <li>
-              So I've been told, I'm skilled at making anyone from anywhere feel
-              at ease
-            </li>
+            
           </ul>
-        </div>
-        <!--- close box 4 --->
+        </div> <!--- close box 4 --->
+
+
+
+
 
         <div class="text-box center-text">
-          <h1></h1>
-          <p>I am a US Citizen.</p>
+           <p>I am a US Citizen.</p>
           <p>I am eligible for a security clearance.</p>
-        </div>
-        <!--- close box 5 --->
-
-      </div>
-      <!--- close main --->
-    </div>
-    <!--- close row --->
+        </div><!--- close box 5 --->
 
 
+        <div class="text-box education">
+            <h2>Education</h2>
+                     
+            <h4>Applied Information Technology Program at University</h4>
+            <ul>
+              <li>Java - 2 semesters</li>
+              <li>Visual Basic - 2 semesters</li>
+              <li>Database Design</li>
+              <li>Administering and Supporting a Network Operating System</li>
+              <li>Ethics in Society and Business</li>
+              <li>Technical Writing</li>
+            </ul>
+          
+
+          <h4>
+            AA Degree - Medical Technology
+          </h4>
+
+        </div><!---close text box 6 ------>
+      </div> <!--- close center --->
+    </div> <!--- close main --->
 
 
 
 
 
-    <div class="projects" id="projects">
+
+
+  <div class="projects" id="projects">
 
 
       <h2>Projects</h2>
 
+
       <h3>Mock Phone</h3>
-
-
-
       <div class="my-iframe-container2">
         <iframe
           class="my-iframe2"
           src="phone/phone.html"
           title="CellPhone"
           scrolling: auto;
-          border:none;
-        ></iframe>
-      </div>
-      <!--- close my-iframe-container --->
+          border:none;>
+      </iframe>
+      </div><!--- close my-iframe-container --->
+
+
+
+
 
       <h3>Sample Form With Validation and Visual Cues</h3>
-      <div class="my-iframe-container2">
+      <div class="my-iframe-container3">
         <iframe
-          class="my-iframe2"
+          class="my-iframe3"
           src="form/formValidationNoImage.html"
           title="Form With Validation"
-        ></iframe>
-      </div>
-      <!--- close my-iframe-container --->
+          scrolling: none;
+          style="border:0">
+        </iframe>
+      </div> <!--- close my-iframe-container --->
 
-<!---
-      <div class="my-iframe-container2">
+
+
+
+
+      <h3>Sliders</h3>
+      <div class="my-iframe-container">
         <iframe
-          class="my-iframe2 responsive-iframe"
-          src="edgarsFriends/index.html"
-          title="Cat Sitting Service"
-        ></iframe>
-      </div>
-      --->
-      <!--- close my-iframe-container --->
+          id="iframeid"
+          class="my-iframe responsive-iframe"
+          src="sliders/sliders.html"
+          title="Pet Store"
+          frameborder="0" 
+          style="border:0">
+        </iframe>
+
+      </div><!--- close my-iframe-container --->
+
+
+      <input type="button" id="btn" class="button" value="Refresh the frame" />
+      
 
       <!---
       <div class="my-iframe-container2">
@@ -1093,19 +1254,19 @@
           &lt/cfquery&gt
                         
                       
-        &lt!--- Username doesn't exist, send to error page ---&gt
+                  &lt!--- Username doesn't exist, send to error page ---&gt
 
-            &ltcfif !Authenticate.recordcount>
+        &ltcfif !Authenticate.recordcount>
                &ltcflocation  url="error.cfm"  addtoken=false&gt
-            &ltcfif&gt
+        &ltcfif&gt
                       
                       
 
-        &lt!--- If username exists, now test to see if password passes -----&gt
+                  &lt!--- If username exists, now test to see if password passes -----&gt
 
           &ltcfif Authenticate.hashPassword EQ hash(form.password & Authenticate.saltPassword, "SHA-512")&gt
                         
-            &lt!--- user is authenticated, set the session variables ----&gt
+                  &lt!--- user is authenticated, set the session variables ----&gt
 
                &ltcfset Session.Auth = StructNew()&gt
                &ltcfset Session.Auth.IsLoggedIn = "Yes"&gt
@@ -1136,7 +1297,7 @@
 
 
 
-
+<!---
     <div class="certifications" id="certfication">
       <h2>Certification</h2>
       <img
@@ -1148,30 +1309,49 @@
           text-align: center;
           display: block;"
       />
-    </div><!--- close skills -------------->
+    </div>
+--->
 
 
 
-
-
-    <div class="contact" id="contact">
+<footer id="contact">
       <h2>Contact Me</h2>
       
 
+      <div class="footerIcons">
 
-   
+          <a class="" href="tel:443-558-2221">
+            <i class="fa-solid fa-phone fa-xl">&nbsp;</i>
+            Call
+          </a>
 
-    </div> <!---- close contact section --->
+          <a class="" href="mailto:lamareeb@protonmail.com">
+            <i class="fa-regular fa-envelope fa-2xl"></i>
+            Email
+          </a>
 
+          <a class="" href="https://github.com/Lamareeb">
+            <i class="fa-brands fa-github fa-2xl"></i>
+            GitHub
+          </a>
 
+          <a class="" href="https://codepen.io/LamareeB">
+            <i class="fa-brands fa-codepen fa-2xl"></i>
+            CodePen
+          </a>
+      </div><!--- close footer icons --->
 
-
-
-    <!-- Footer 
-    <div class="footer" id="contact">
-      <h2>Footer</h2>
+    <div class="copyright">
+      <p>
+      &copyLaura Blankenship - 2023
+    </p>
     </div>
--->
+
+    </footer> <!---- close contact section --->
+
+
+
+
     <!--- scroll to top --->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <script>
@@ -1201,6 +1381,11 @@
       }
     </script>
 
+
+
+
+
+
     <!--- start close menu after item selection --->
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script>
@@ -1209,5 +1394,18 @@
       }
     </script>
     <!--- end menu closer --->
+
+
+
+
+
+
+<!--- reload iframe ----------------------------->
+    <script>
+      function reload() {
+          document.getElementById('iframeid').src += '';
+      }
+      btn.onclick = reload;
+  </script>
   </body>
 </html>
