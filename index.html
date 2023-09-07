@@ -23,9 +23,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!--- end aos animation --->
+<!--- local styles ---
+<link href="logoStyles.css" rel="stylesheet" />
+--->
 
-
-
+<!----smooth scroll script jquery----->
     <script>
       $(document).ready(function () {
         // Add smooth scrolling to all links
@@ -100,7 +102,7 @@
       }
 
       /* header */
-.header {
+      .header {
         top: 0;
         position: absolute;
         background-color: var(--header);
@@ -132,7 +134,7 @@
         color: var(--darkText);
       }
 
-.logo {
+      .logo {
         height: 40px;
         width: 40px;
         margin-top: 10px;
@@ -304,10 +306,10 @@
         margin-right: 30px;
       }
 .education h4 {
-       text-align: center;
-       margin: 30px auto 30px 10px;
-       
-     }
+   text-align: center;
+   margin: 30px auto 30px 10px;
+   
+ }
       .center-text {
         text-align: center;
       }
@@ -474,10 +476,12 @@
         background-color: rgb(244, 244, 248);
         width:85%;
         overflow:scroll;
+               
       }
       .codebox 
       {
         margin: 150px auto;
+       
       }
      
 
@@ -553,7 +557,21 @@
         width: 100%;
         height: 99%;
         
-      }
+ }
+ .formImgHolder {
+    height: 800px;
+    width: 100%;
+    padding: 50px;
+   
+    text-align: center;
+ }
+ .formImg {
+    height: 600px;
+    width: 300px;
+    
+    margin: 50px auto;
+    border: 1px white solid;
+ }
 input[type=button] {
   padding: 20px;
   background-color: white;
@@ -588,26 +606,26 @@ input[type=button] {
    
 
 footer {
-      background-color: rgb(77, 76, 76);
-      border: 1px black solid;
-     }
-    
-     footer h2 {
-      color: var(--goldAccent);
-      text-align: center;
-      margin: 150px auto 125px auto;
-      padding: 20px;
-      border: 1px solid white;
-      width: 70%;
-     }
-     footer p {
-      color: white;
-      text-align: center;
-      margin: 200px auto 10px auto;
-      padding:10px;
-      border: 1px solid white;
-      width: 70%;
-    }
+  background-color: rgb(77, 76, 76);
+  border: 1px black solid;
+ }
+
+ footer h2 {
+  color: var(--goldAccent);
+  text-align: center;
+  margin: 150px auto 125px auto;
+  padding: 20px;
+  border: 1px solid white;
+  width: 70%;
+ }
+ footer p {
+  color: white;
+  text-align: center;
+  margin: 200px auto 10px auto;
+  padding:10px;
+  border: 1px solid white;
+  width: 70%;
+}
  .footerIcons {
         display: flex;
         flex-direction: row;
@@ -618,30 +636,31 @@ footer {
         width: 70%;
               
  }
-     .footerIcons:hover {
-      color: var(--goldAccent);
-     }
-     .footerIcons i {
-          margin-right: 1px;
-          color: whitesmoke;
-          padding: 10px;
-          margin-bottom: 15px;
-        }
-    
-    .footerIcons a {
-          text-decoration: none;
-          color: white;
-          padding: 10px;
-          margin-right: 10px;
-          font-size: 1.3em;
-    }
-    .footerIcons a:hover {
-         color: var(--goldAccent);
-    }
-    footer i:hover {
-      color: var(--goldAccent);
-      color: gold;
-    }
+ .footerIcons:hover {
+  color: var(--goldAccent);
+ }
+ .footerIcons i {
+      margin-right: 1px;
+      color: whitesmoke;
+      padding: 10px;
+      margin-bottom: 15px;
+     
+}
+
+.footerIcons a {
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+      margin-right: 10px;
+      font-size: 1.3em;
+}
+.footerIcons a:hover {
+     color: var(--goldAccent);
+}
+footer i:hover {
+  color: var(--goldAccent);
+  color: gold;
+}
 
 
 
@@ -663,6 +682,7 @@ footer {
      width: var(--widthInner);
      border-radius: 50%;
      background-color: var(--oneIn);
+
      margin-top: 7px;
      margin-left: 7px;
      position: absolute;
@@ -870,20 +890,20 @@ footer {
       /* bubble in out */
 
 .bubble {
-      width: 80px;
-      height: 80px;
-      margin-top: 50px;
-      position: absolute;
-      border-radius: 20px;
-      background: rgb(84, 77, 77);
-      position: relative;
-    
-      animation: myBubble 7s;
-      animation-iteration-count: 1;
-      animation-timing-function:ease-in-out;
-      animation-fill-mode: forwards;
-      
-      border: 2px lime solid;
+  width: 80px;
+  height: 80px;
+  margin-top: 50px;
+  position: absolute;
+  border-radius: 20px;
+  background: rgb(84, 77, 77);
+  position: relative;
+
+  animation: myBubble 7s;
+  animation-iteration-count: 1;
+  animation-timing-function:ease-in-out;
+  animation-fill-mode: forwards;
+  
+  border: 2px lime solid;
   
 }
 .bubble p {
@@ -922,6 +942,8 @@ footer {
     </div><!--- close logo container --->
        
        
+
+
         <input class="menu-btn toggler" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn">
           <span class="navicon"></span>
@@ -931,22 +953,12 @@ footer {
           <li><a onclick="test()" href="#about">About</a></li>
           <li><a onclick="test()" href="#projects">Projects</a></li>
           <li><a onclick="test()" href="#contact">Contact</a></li>
+         
         </ul>
       </header>
     </nav>
 
-    <!-- Header -->
-    <!---- 
-            <div class="head">
-      <h1>Coder of Web Things</h1>
-      <hr style="width: 60%" />
-      <p>
-        <img src="images/Lamaree5.png" class="real" />
-        <img src="images/Lamaree5.png" class="refl" />
-      </p>
-    </div>
------->
-
+   
 <!--- bubble that appears and disappears 
 <div class="bubble">
   <p>
@@ -1050,9 +1062,15 @@ footer {
             <li>UX/UI</li>
             <li>CSS3</li>
             <li>HTML5</li>
-            <li>Bootstrap</li>
             <li>jQuery</li>
+            <li>Bootstrap</li>
             <li>Web Accessibility</li>
+            <h4>Familiar With</h4>
+                <ul>
+                  <li>D3.js</li>
+                  <li>React</li>
+                  <li>There are sooo many js libraries!</li>
+                </ul>
           </ul>
 
           <h3>Development IDE & Source Control</h3>
@@ -1162,17 +1180,14 @@ footer {
 
 
 
-
+      
       <h3>Sample Form With Validation and Visual Cues</h3>
-      <div class="my-iframe-container3">
-        <iframe
-          class="my-iframe3"
-          src="form/formValidationNoImage.html"
-          title="Form With Validation"
-          scrolling: none;
-          style="border:0">
-        </iframe>
-      </div> <!--- close my-iframe-container --->
+      <div class="formImgHolder"> 
+            <a href="form/formValidationNoImage.html">
+            <img class="formImg" src="images/Screenshot 2023-09-07 at 12-18-12 Form With Validation.png">
+            </a>
+      
+      </div> <!--- close form image-container --->
 
 
 
@@ -1216,7 +1231,7 @@ footer {
       
        
     <pre>
-           
+      
 
     &lt!--- 
     This function checks the db to authenticate the user attempting to log in. 
@@ -1293,7 +1308,7 @@ footer {
     <div class="certifications" id="certfication">
       <h2>Certification</h2>
       <img
-        src="images/WebDesign.png"
+        src="images/fccWebDesign.png"
         style="
           height: 300px;
           width: 300px;
@@ -1339,7 +1354,7 @@ footer {
     </p>
     </div>
 
-    </footer> <!---- close contact  --->
+    </footer> <!---- close contact section --->
 
 
 
