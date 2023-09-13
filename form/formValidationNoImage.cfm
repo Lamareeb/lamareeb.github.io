@@ -476,6 +476,57 @@ i {
 } 
 
 </style>
+
+
+<!---- validate the form on submit --------------------------------------------->
+<script type="text/javascript">
+
+    function validateFormSubmit() {
+             
+        let uName = document.form.uName.value.trim();
+        let regPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,25}$/;
+        let regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,25}))$/;
+ 
+          if( document.form.uName.value === "" || 
+              document.form.uName.value.trim().length <8 ) {
+             alert( "Username must have at least 8 characters." );
+             uName.focus();
+             return false;
+          }
+         if( document.form.password.value === "" || 
+             document.form.password.value.length <8 || 
+             regPassword.test(document.form.password.value.trim()) == false) {
+            alert( "Password must have at least 8 characters. Including 1 upper, 1 lower, 1 number and 1 symbol" );
+            password.focus();
+            return false;
+         }
+         if( document.form.email.value === "" || 
+             document.form.email.value.length <8 || 
+             regEmail.test(document.form.email.value.trim()) == false) {
+             alert( "Valid email is required" );
+             email.focus();
+             return false;
+         }
+          if( document.form.phone.value === "" || document.form.phone.value.length <12 ) {
+             alert( "Phone number is required." );
+             phone.focus();
+             return false;
+          }
+          if( document.form.role.value === "" ) {
+             alert( "Role is required." );
+             role.focus();
+             return false;
+          }
+          if( document.form.subject.value === "" || document.form.subject.value.length <25 ) {
+             alert( "A message is required. It must be at least 25 characters." );
+             subject.focus();
+             return false;
+          }
+         }
+ 
+ </script>
+
+
 </head>
 <body>
 
@@ -492,7 +543,7 @@ i {
         <span class="navicon"></span>
       </label>
       <ul class="menu">
-        <li><a onclick="test()" href="index.html">Home</a></li>
+        <li><a onclick="test()" href="../index.html">Home</a></li>
         <li><a onclick="test()" href="#about">About</a></li>
         <li><a onclick="test()" href="#projects">Projects</a></li>
         <li><a onclick="test()" href="#contact">Contact</a></li>
@@ -502,21 +553,20 @@ i {
   </nav>
 
 
-  <!--- set var paths for input icons --->
-<cfset correct = ImageNew("images/correct.png")>
-<cfset wrong = ImageNew("images/remove.png")>
+
 
  
  
 <div class="container">
       <!--- change back to post method.  Hostek not allowing post ------>
-<form action="formValidationNoImage_submit.cfm" method="post" id="form" name="form" class="form" onsubmit = "return validateFormSubmit();">
+
+<form action="formValidationNoImage_submit.cfm" method="post" id="form" name="form" class="form" onsubmit = "return validateFormSubmit();" required>
 
       <!--- reset /clear the fields
       <script type="text/javascript">
         document.getElementById("validateForm").reset();
       </script>
--->
+--->
 
 
   <div class="center">
@@ -558,7 +608,7 @@ i {
               maxlength="20"
               onkeyup="setTimeout(validatePassword, 1500);">
 
-            <!--- hide show password eyeball-->
+            <!--- hide show password eyeball--->
         <span class="eye">
               <i class="far fa-eye" id="togglePassword" aria-hidden="true"></i> 
         </span>
@@ -631,7 +681,7 @@ i {
    </div>
 
 
-<!--- oninput = "validateSubject(subject)"-->
+<!--- oninput = "validateSubject(subject)"--->
 
   <div>  
     <label for="subject">Message</label>
@@ -648,7 +698,7 @@ i {
         </span>
         <p id="message"></p>
  </div>
- <!--- onkeyup = "countChars(this);"-->
+ <!--- onkeyup = "countChars(this);"--->
    
       <input class="button" type="submit" id="submit" name="submit" value="Submit">
    
@@ -729,54 +779,6 @@ function adddashes(el){
 
 
 
-<!---- validate the form on submit --------------------------------------------->
-  <script type="text/javascript">
-
-   function validateFormSubmit() {
-            
-       let uName = document.form.uName.value.trim();
-       let regPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,25}$/;
-       let regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,25}))$/;
-
-         if( document.form.uName.value === "" || 
-             document.form.uName.value.trim().length <8 ) {
-            alert( "Username must have at least 8 characters." );
-            uName.focus();
-            return false;
-         }
-        if( document.form.password.value === "" || 
-            document.form.password.value.length <8 || 
-            regPassword.test(document.form.password.value.trim()) == false) {
-           alert( "Password must have at least 8 characters. Including 1 upper, 1 lower, 1 number and 1 symbol" );
-           password.focus();
-           return false;
-        }
-        if( document.form.email.value === "" || 
-            document.form.email.value.length <8 || 
-            regEmail.test(document.form.email.value.trim()) == false) {
-            alert( "Valid email is required" );
-            email.focus();
-            return false;
-        }
-         if( document.form.phone.value === "" || document.form.phone.value.length <12 ) {
-            alert( "Phone number is required." );
-            phone.focus();
-            return false;
-         }
-         if( document.form.role.value === "" ) {
-            alert( "Role is required." );
-            role.focus();
-            return false;
-         }
-         if( document.form.subject.value === "" || document.form.subject.value.length <25 ) {
-            alert( "A message is required. It must be at least 25 characters." );
-            subject.focus();
-            return false;
-         }
-        }
-
-</script>
-
         
 
 
@@ -786,7 +788,7 @@ function adddashes(el){
 
 
 
-<!---// Validate Name -->
+<!---// Validate Name --->
 <script>
   
    function validateName(uName) {
@@ -805,7 +807,6 @@ function adddashes(el){
    document.getElementById("uName").style.backgroundPosition = "98% 50%";
    document.getElementById("uName").style.backgroundRepeat = "no-repeat";
    document.getElementById("uName").style.border = "limegreen solid 2.0px";
-  
    return true;
    }else{
    //Do this if name isn't valid
@@ -831,11 +832,6 @@ function adddashes(el){
    document.getElementById("uNameError").style.border = "red 1.0px solid";
    document.getElementById("uNameError").style.borderRadius = "3px"; 
    document.getElementById("uNameError").style.padding = "10px"; 
-
-   
-  // Style the text box
-   
-   
    return false;
    }
    }
@@ -863,7 +859,6 @@ function adddashes(el){
    document.getElementById("password").style.backgroundPosition = "98% 50%";
    document.getElementById("password").style.backgroundRepeat = "no-repeat";
    document.getElementById("password").style.border = "limegreen solid 2.0px";
-   
    return true;
    }else{
     // do this if password isn't valid
@@ -886,7 +881,6 @@ function adddashes(el){
    document.getElementById("passwordError").style.border = "red 1px solid";
    document.getElementById("passwordError").style.borderRadius = "3px"; 
    document.getElementById("passwordError").style.padding = "10px"; 
-   
    return false;
    }
    }
@@ -931,7 +925,6 @@ function adddashes(el){
    document.getElementById("emailError").style.border = "red 1px solid";
    document.getElementById("emailError").style.borderRadius = "3px"; 
    document.getElementById("emailError").style.padding = "10px"; 
-  
    return false;
    }
    }
@@ -980,7 +973,6 @@ function adddashes(el){
    document.getElementById("phoneError").style.border = "red 1px solid";
    document.getElementById("phoneError").style.borderRadius = "3px"; 
    document.getElementById("phoneError").style.padding = "10px"; 
-  
    return false;
    }
    }
