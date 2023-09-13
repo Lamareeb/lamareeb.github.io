@@ -1,0 +1,235 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bodyBackground);
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+:root {
+    --main-white: rgb(248, 244, 244);
+    --dark-white: rgb(252, 248, 248);
+
+    --main-gray: #3b3f44;
+    --light-gray: rgb(226, 226, 232);
+
+    --darkText: rgb(21, 21, 22);
+    --light-text: rgb(76, 72, 72);
+    --bodyBackground: rgb(232, 227, 227);
+    --myName: rgb(51, 51, 53);
+    --header: rgb(254, 253, 253);
+
+    --h2: rgb(229, 191, 42);
+    --goldAccent: rgb(229, 191, 42);
+    --goldHover: gold;
+
+}
+
+/* Style the top navigation bar */
+.nav {
+    top: 0;
+    position: absolute;
+    height: auto;
+    width: 100%;
+
+}
+
+/* header */
+.header {
+    top: 0;
+    position: absolute;
+    background-color: var(--header);
+    box-shadow: 1px 1px 4px 0 rgba(216, 47, 47, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+
+}
+
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: var(--header);
+}
+
+.header li a {
+    display: block;
+    padding: 20px 20px;
+    border-left: 1px solid #f4f4f4;
+    text-decoration: none;
+    color: gray;
+    font-size: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.2em;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+    background-color: var(--bodyBackground);
+    color: var(--darkText);
+}
+
+.logo {
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.logo a:link {
+    color: rgb(0, 255, 4);
+}
+
+.logo a:hover {
+    color: rgb(0, 255, 4);
+}
+
+.header .logo {
+    display: block;
+    float: left;
+    font-size: 1em;
+    text-decoration: none;
+    color: rgb(0, 255, 4);
+}
+
+.header .logo a:link {
+    color: rgb(0, 255, 4);
+}
+
+/* menu */
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+
+}
+
+/* menu burger icon */
+.header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 20px 20px;
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    user-select: none;
+    width: 50px;
+
+}
+
+.header .menu-icon .navicon {
+    /* color for middle line of burger */
+    background: var(--main-gray);
+
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+    background: var(--main-gray);
+    /* color for top and bottom lines of burger */
+    content: "";
+    height: 2px;
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+    top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+    top: -5px;
+}
+
+/* menu btn */
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked~.menu {
+    max-height: 240px;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+
+
+
+
+/* 48em = 768px  bigger screens */
+
+@media (min-width: 768px) {
+    .nav {
+        top: 0;
+        position: absolute;
+        height: auto;
+        width: 100%;
+        background-color: aqua;
+    }
+
+    .header li {
+        float: left;
+    }
+
+    .header li a {
+        padding: 20px 30px;
+    }
+
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+
+    .header .menu-icon {
+        display: none;
+    }
+
+    .head {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 429px) {
+    .nav {
+        margin-bottom: 0px;
+    }
+
+    .head {
+        margin-top: 0px;
+    }
+}
