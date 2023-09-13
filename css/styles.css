@@ -207,8 +207,16 @@
       margin-right: 40px;
       margin-bottom: 0px;
       margin-left: 15px;
+  }
 
+  .center h1 {
+      padding-top: 35px;
+      padding-bottom: 20px
+  }
 
+  .center h2 {
+      padding-top: 5px;
+      padding-bottom: 5px
   }
 
   .main h1 {
@@ -834,6 +842,25 @@
           font-size: 1em;
           margin-right: 6px;
       }
+
+
+
+      .formImgHolder {
+          height: 675px;
+          width: 90%;
+          padding: 10px;
+          text-align: center;
+          margin: auto;
+
+      }
+
+      .formImg {
+          height: 600px;
+          width: 80%;
+
+          margin: 20px auto;
+          border: 1px white solid;
+      }
   }
 
 
@@ -843,7 +870,7 @@
 
 
 
-  /* 48em = 768px */
+
 
   @media (min-width: 768px) {
       .nav {
@@ -851,7 +878,7 @@
           position: absolute;
           height: auto;
           width: 100%;
-          background-color: aqua;
+
       }
 
       .header li {
@@ -877,6 +904,12 @@
       }
   }
 
+
+
+
+
+
+
   @media (max-width: 429px) {
       .nav {
           margin-bottom: 0px;
@@ -886,6 +919,13 @@
           margin-top: 0px;
       }
   }
+
+
+
+
+
+
+
 
   /* scroll to top css */
   #myBtn {
