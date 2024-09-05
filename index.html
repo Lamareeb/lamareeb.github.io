@@ -1,15 +1,17 @@
+<!--- Date: September 5, 2024 --->
+<!--- Purpose: Resume --->
+<!--- Author: Laura Blankenship --->
 <!DOCTYPE html>
 <html lang="en">
   <meta charset="UTF-8" />
   <head>
     <title>Laura Blankenship - Web Application Developer</title>
-    <link rel="stylesheet" href="css/styles.css">
+   
     <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon" /> 
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest" />
-  
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Laura Blankenship" />
     <meta name="description" content="Web Developer Resume Website" />
@@ -23,78 +25,49 @@
     <!--- aos animate library links --->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!--- end aos animation --->
-<!--- local styles ---
-<link href="logoStyles.css" rel="stylesheet" />
---->
 
-<!----smooth scroll script jquery----->
-    <script>
-      $(document).ready(function () {
-        // Add smooth scrolling to all links
-        $("a").on("click", function (event) {
-          // Make sure this.hash has a value before overriding default behavior
-          if (this.hash !== "") {
-            // Prevent default anchor click behavior
-            event.preventDefault();
+    <!--- light mode or dark mode --->
+    <link href="css/light-theme.css" rel="stylesheet" id="theme-link">
+        
 
-            // Store hash
-            var hash = this.hash;
-
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-            $("html, body").animate(
-              {
-                scrollTop: $(hash).offset().top,
-              },
-              1500,
-              function () {
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-              }
-            );
-          } // End if
-        });
-      });
-    </script>
-    <!--- local styles --->
-
-    <link rel="stylesheet" href="css/flipAnimation.css" />
-
-  </head>
-  <body>
+    <!--- local styles, before light/dark modes enabled 
+<link rel="stylesheet" href="css/styles.css">
+ --->
+ 
+</head>
+  <body class="body" id="body">
 
     <nav>
       <header class="header">
-        <a href="index.html">
-          <img src="images/logo4.jpg" alt="logo" class="logo" id="logo"/></a> 
-        <!--- end  logo --->
-       
-       
+              <a href="index.html">
+                <img src="images/logo4.jpg" alt="logo" class="logo" id="logo"/></a> 
+              <!--- end  logo --->
 
 
+        <button class="btn-toggle">Toggle Dark-Mode</button>
+       
         <input class="menu-btn toggler" type="checkbox" id="menu-btn" />
-        <label class="menu-icon" for="menu-btn">
-          <span class="navicon"></span>
-        </label>
-        <ul class="menu">
-          <li><a onclick="test()" href="index.html">Home</a></li>
-          <li><a onclick="test()" href="#about">About</a></li>
-          <li><a onclick="test()" href="#projects">Projects</a></li>
-          <li><a onclick="test()" href="#contact">Contact</a></li>
-         
-        </ul>
-      </header>
+                <label class="menu-icon" for="menu-btn">
+                  <span class="navicon"></span>
+                </label>
+            <ul class="menu">
+              <li><a onclick="test()" href="index.html">Home</a></li>
+              <li><a onclick="test()" href="#about">About</a></li>
+              <li><a onclick="test()" href="#projects">Projects</a></li>
+              <li><a onclick="test()" href="#contact">Contact</a></li>
+           </ul>
+
+       </header>
     </nav>
 
    
-<!--- bubble that appears and disappears 
+<!--- bubble that appears and disappears ---->
 <div class="bubble">
   <p>
       Available for Hire!
   </p>
 </div>
----->
+
 
     <!-- The flexible grid (content) -->
     <div class="main">
@@ -137,15 +110,19 @@
       </div> <!--- close side --->
      
 
-      <div class="center" id="about">
+
+
+
+
+  <div class="center" id="about">
 
         <div class="text-box">
-          <h1>About Me</h1>
+          <h2>About Me</h2>
 
-          <p>
+          <p> 
             I'm a Web Developer based in the United States. I have 6+ years of
             experience working on all phases of the web development life cycle,
-            from working with clients - helping them realize their Web
+            from working with clients, helping them realize their Web
             Application needs to front and back end development, including
             support after go-live.
           </p>
@@ -546,3 +523,50 @@
   </script>
   </body>
 </html>
+
+
+<!----smooth scroll script jquery----->
+<script>
+    $(document).ready(function () {
+      // Add smooth scrolling to all links
+      $("a").on("click", function (event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            1500,
+            function () {
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            }
+          );
+        } // End if
+      });
+    });
+  </script>
+
+
+
+
+<script>
+  const btn = document.querySelector(".btn-toggle");
+  const theme = document.querySelector("#theme-link");
+  btn.addEventListener("click", function() {
+    // Swap out the URL for the different stylesheets
+    if (theme.getAttribute("href") == "css/light-theme.css") {
+      theme.href = "css/dark-theme.css";
+    } else {
+      theme.href = "css/light-theme.css";
+    }
+  });
+</script>
