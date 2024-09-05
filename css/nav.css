@@ -3,16 +3,6 @@
 *:after {
     box-sizing: border-box;
 }
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bodyBackground);
-    font-family: Arial, Helvetica, sans-serif;
-
-
-}
-
 :root {
     --main-white: rgb(248, 244, 244);
     --dark-white: rgb(252, 248, 248);
@@ -31,7 +21,12 @@ body {
     --goldHover: gold;
 
 }
-
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bodyBackground);
+    font-family: Arial, Helvetica, sans-serif;
+}
 /* Style the top navigation bar */
 .nav {
     top: 0;
@@ -198,7 +193,6 @@ body {
         position: absolute;
         height: auto;
         width: 100%;
-        background-color: aqua;
     }
 
     .header li {

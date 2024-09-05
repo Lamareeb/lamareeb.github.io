@@ -1,0 +1,1028 @@
+/* dark-theme.css */
+:root {
+    font-size: 1rem;
+    --main-white: rgb(248, 244, 244);
+    --dark-white: rgb(252, 248, 248);
+
+    --light-background: rgb(232, 227, 227);
+    --dark-background: #282828;
+
+    --main-gray: #3b3f44;
+    --med-gray: rgb(128,128,128);
+    --light-gray: rgb(226, 226, 232);
+
+    --darkText: rgb(21, 21, 22);
+    --light-text: rgb(239, 234, 234);
+   /* --bodyBackground: rgb(232, 227, 227); */
+    --myName: rgb(51, 51, 53);
+    --header: rgb(254, 253, 253);
+
+    --h2: rgb(229, 191, 42);
+    --goldAccent: rgb(229, 191, 42);
+    --goldHover: gold;
+
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-background);
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+
+/* Style the top navigation bar */
+.nav {
+    top: 0;
+    position: absolute;
+    height: auto;
+    width: 100%;
+}
+
+/* header */
+.header {
+    top: 0;
+    position: absolute;
+    background-color: var(--dark-background);
+    border-bottom: 1px solid rgb(65, 64, 64);
+    
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+
+  
+}
+
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: var(--dark-background);
+}
+
+.header li a {
+    display: block;
+    padding: 20px 20px;
+    border-left: 1px solid #727171;
+    text-decoration: none;
+    color: rgb(250, 246, 246);
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.2em;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+    background-color: rgb(24, 23, 23);
+    color: white;
+}
+
+.logo {
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.logo a:link {
+    color: rgb(0, 255, 4);
+}
+
+.logo a:hover {
+    color: rgb(0, 255, 4);
+}
+
+.header .logo {
+    display: block;
+    float: left;
+    font-size: 1em;
+
+    text-decoration: none;
+    color: rgb(0, 255, 4);
+}
+
+.header .logo a:link {
+    color: rgb(0, 255, 4);
+}
+
+/* menu */
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+}
+
+/* menu icon */
+.header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+
+.header .menu-icon .navicon {
+    background: var(--light-text);
+    /* color for middle line of burger */
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+    background: var(--light-text);
+    /* color for top and bottom lines of burger */
+    content: "";
+    height: 2px;
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+    top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+    top: -5px;
+}
+
+/* menu btn */
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked~.menu {
+    max-height: 240px;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+/*  End Menu Navigation */
+
+/* Main content container */
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto 0px auto;
+    width: 90%;
+   
+}
+
+/* Sidebar/left column */
+.side {
+    flex: 25%;
+    background-color: var(--dark-background);
+    padding: 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 25px;
+}
+
+/* Main center column */
+.center {
+    flex: 65%;
+    background-color: var(--dark-background);
+    padding: 0;
+    margin-top: 25px;
+    margin-right: 40px;
+    margin-bottom: 0px;
+    margin-left: 15px;
+}
+
+.center h2 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.main h1 {
+    color: var(--goldAccent);
+    text-align: center;
+    font-size: 1.5em;
+    margin: 30px auto 50px auto;
+}
+
+.main h2 {
+    color: var(--goldAccent);
+    text-align: center;
+    font-size: 1.3em;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.main h3 {
+    font-size: 1.1em;
+    color: var(--light-text);
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.main p {
+    font-size: 1em;
+    color: var(--light-text);
+    letter-spacing: 0.7px;
+}
+
+.main ul {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    list-style-type: disc;
+    letter-spacing: 0.5px;
+}
+
+.main li {
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    margin-top: 5px;
+    color: var(--light-text);
+}
+
+/* divs that hold content on right */
+.text-box {
+    background-color: var(--dark-background);
+    letter-spacing: 0.7px;
+    padding: 10px 10px 50px 10px;
+    margin: 1px auto 15px auto;
+    color: var(--light-text);
+    box-shadow: 10px 10px 5px #cecbcb;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.text-box:last-child {
+    margin-bottom: 0px;
+}
+
+.text-box p {
+    letter-spacing: 0.3px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.education h4 {
+    text-align: center;
+    margin: 30px auto 30px 10px;
+
+}
+
+.center-text {
+    text-align: center;
+}
+
+/*Left Bars - bar container */
+.centerBars {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 20px 1px 10px 1px;
+}
+
+i {
+    color: rgb(229, 191, 42);
+    padding-right: 15px;
+    vertical-align: middle;
+}
+
+.bar {
+    width: 80%;
+    font-size: 1.0rem;
+    letter-spacing: 0.08px;
+    color:white;
+    background-color: rgb(49, 49, 49);
+    border: 0.5px solid rgb(234, 233, 230);
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    margin: 1px auto 20px auto;
+
+    box-shadow: 10px 10px 5px #393939;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.bar:hover {
+    color: rgb(229, 191, 42);
+}
+
+.left-text {
+    margin-left: 30px;
+}
+
+.imgBox {
+    background-color:  rgb(49, 49, 49);
+    width: 100% !important;
+    margin-top: 0px;
+    padding: 50px;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.myPic {
+    background-image: url(images/Lamaree5.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+   
+    border: 1px solid rgb(53, 50, 50);
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.name {
+    color: var(--myName);
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.8px;
+    margin-bottom: 50px;
+}
+
+/* Head */
+.head {
+    padding: 100px;
+    text-align: center;
+    background: var(--light-gray);
+    color: white;
+    margin-top: 0px;
+}
+
+.head h1 {
+    color: white;
+    font-size: 4em;
+}
+
+/* reflections for Firefox and other than webkit (CHrome and Safari */
+.real {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px white solid;
+}
+
+/* creates a water like reflection under the image */
+/*
+.refl {
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    border-radius: 50%;
+    -moz-transform: scale(1, -1);
+    -o-transform: scale(1, -1);
+    -webkit-transform: scale(1, -1);
+    transform: scale(1, -1);
+    -webkit-mask-image: -webkit-gradient(linear,
+            right top,
+            right bottom,
+            from(transparent),
+            color-stop(20%, transparent),
+            to(rgba(255, 255, 255, 0.1)));
+}
+ */
+
+.skills {
+    width: 100%;
+    height: 700px;
+    background-color: rgb(189, 164, 147);
+}
+
+.skills h2 {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 100px;
+    margin: auto;
+}
+
+
+
+
+
+.projects {
+    width: 100%;
+    background-color: rgb(77, 76, 76);
+    padding-top: 75px;
+    padding-bottom: 50px;
+
+}
+
+.projects h2 {
+    color: var(--goldAccent);
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    margin: 100px auto 50px auto;
+    width: 70%;
+    padding: 20px;
+    border: 1px solid white;
+
+}
+
+.projects h3 {
+    color: rgb(234, 234, 228);
+    font-size: 1.1rem;
+    text-align: center;
+
+    margin: 100px auto 1px auto;
+
+    width: 60%;
+
+}
+
+pre {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 40px auto 40px auto;
+    overflow: scroll;
+    background-color: rgb(244, 244, 248);
+    width: 85%;
+    overflow: scroll;
+
+}
+
+.codebox {
+    margin: 150px auto;
+
+}
+
+
+
+
+/* iframe main container  ******************************/
+.my-iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 600px;
+    padding-top: 2%;
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    margin: auto;
+    margin-top: 30px;
+
+}
+
+.my-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 99%;
+    padding: 0;
+    margin: auto;
+
+}
+
+/* outer container of iframe */
+.my-iframe-container2 {
+    position: relative;
+    overflow: hidden;
+    width: 60%;
+    height: 600px;
+    padding-top: 2%;
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    padding-bottom: 2%;
+    margin: 5px auto 100px auto;
+
+}
+
+/* inner container of iframe */
+.my-iframe2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 99%;
+    border: none;
+
+}
+
+/* form - outer container of iframe */
+/* form */
+.my-iframe-container3 {
+    position: relative;
+    overflow: hidden;
+    width: 60%;
+    height: 700px;
+    padding-top: 2%;
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    padding-bottom: 2%;
+    margin: 5px auto 100px auto;
+
+}
+
+/* inner container of iframe */
+.my-iframe3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 99%;
+
+}
+
+.formImgHolder {
+    height: 675px;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+
+}
+
+.formImg {
+    height: 600px;
+    width: 300px;
+
+    margin: 20px auto;
+    border: 1px white solid;
+}
+
+input[type=button] {
+    padding: 20px;
+    background-color: white;
+    color: black;
+    font-size: 1em;
+    display: block;
+    margin: 15px auto;
+    text-align: center;
+}
+
+/* container for  iframe  */
+.container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+footer {
+    background-color: rgb(77, 76, 76);
+    border: 1px black solid;
+}
+
+footer h2 {
+    color: var(--goldAccent);
+    text-align: center;
+    margin: 150px auto 125px auto;
+    padding: 20px;
+    border: 1px solid white;
+    width: 70%;
+}
+
+
+
+.footerIcons {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto 50px auto;
+    text-align: center;
+    padding: 20px;
+    justify-content: space-around;
+    width: 70%;
+
+}
+
+.footerIcons:hover {
+    color: var(--goldAccent);
+}
+
+.footerIcons i {
+    margin-right: 1px;
+    color: whitesmoke;
+    padding: 10px;
+    margin-bottom: 15px;
+
+}
+
+.footerIcons a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+.footerIcons a:hover {
+    color: var(--goldAccent);
+}
+
+footer i:hover {
+    color: var(--goldAccent);
+    color: gold;
+}
+
+.copyright {
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin: 200px auto 10px auto;
+    padding: 10px;
+    border: 1px solid white;
+    opacity: 50%;
+    margin-bottom: 0px;
+}
+
+
+
+/* logo styles ********************************************/
+.oneOut {
+    height: var(--heightOuter);
+    width: var(--widthOuter);
+    border-radius: 50%;
+    background-color: var(--oneOut);
+    margin-top: 1px;
+    margin-left: 1px;
+    position: absolute;
+}
+
+.oneIn {
+    height: var(--heightInner);
+    width: var(--widthInner);
+    border-radius: 50%;
+    background-color: var(--oneIn);
+
+    margin-top: 7px;
+    margin-left: 7px;
+    position: absolute;
+}
+
+.twoOut {
+    height: var(--heightOuter);
+    width: var(--widthOuter);
+    border-radius: 50%;
+    background-color: var(--twoOut);
+    margin-top: 1px;
+    margin-left: 30px;
+    position: absolute;
+}
+
+.twoIn {
+    height: var(--heightInner);
+    width: var(--widthInner);
+    border-radius: 50%;
+    background-color: var(--twoIn);
+    margin-top: 7px;
+    margin-left: 28px;
+    position: absolute;
+}
+
+.threeOut {
+    height: var(--heightOuter);
+    width: var(--widthOuter);
+    border-radius: 50%;
+    background-color: var(--threeOut);
+    margin-top: 30px;
+    margin-left: 30px;
+    position: absolute;
+}
+
+.threeIn {
+    height: var(--heightInner);
+    width: var(--widthInner);
+    border-radius: 50%;
+    background-color: var(--threeIn);
+    margin-top: 28px;
+    margin-left: 28px;
+    position: absolute;
+}
+
+
+.fourOut {
+    height: var(--heightOuter);
+    width: var(--widthOuter);
+    border-radius: 50%;
+    background-color: var(--fourOut);
+    margin-top: 30px;
+    margin-left: 1px;
+    position: absolute;
+}
+
+.fourIn {
+    height: var(--heightInner);
+    width: var(--widthInner);
+    border-radius: 50%;
+    background-color: var(--fourIn);
+    margin-top: 28px;
+    margin-left: 8px;
+    position: absolute;
+}
+
+.logoContainer {
+    height: 50px;
+    width: 50px;
+
+    border: 1px solid black;
+    background-color: white;
+
+    margin-top: 1px;
+    position: absolute;
+    z-index: 7;
+
+}
+
+/* END logo styles ************************************/
+
+
+
+
+
+
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+
+    .main,
+    .navbar {
+        flex-direction: column;
+    }
+
+    .main {
+        margin: 50px auto 0px auto;
+
+    }
+
+    .main ul {
+        margin-left: 1px;
+    }
+
+    .main h2 {
+        text-align: center;
+    }
+
+    .main h3 {
+        text-align: center;
+    }
+
+    .center {
+        margin: 25px auto;
+    }
+
+    pre {
+        margin-top: 50px;
+        width: 85%;
+        overflow: scroll;
+    }
+
+    /*  style the iframe to fit in the container div with full height and width */
+    .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 90%;
+        height: 100%;
+    }
+
+    /* iframe main container  ******************************/
+    .my-iframe-container {
+        width: 90%;
+    }
+
+    .my-iframe-container2 {
+        width: 90%;
+    }
+
+    .my-iframe-container3 {
+        width: 90%;
+    }
+
+
+    .footerIcons {
+        width: 65%;
+    }
+
+    .footerIcons a {
+        font-size: 1em;
+        margin-right: 6px;
+    }
+
+
+
+    .formImgHolder {
+        height: 675px;
+        width: 90%;
+        padding: 10px;
+        text-align: center;
+        margin: auto;
+
+    }
+
+    .formImg {
+        height: 600px;
+        width: 80%;
+
+        margin: 20px auto;
+        border: 1px white solid;
+    }
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .nav {
+        top: 0;
+        position: absolute;
+        height: auto;
+        width: 100%;
+
+    }
+
+    .header li {
+        float: left;
+    }
+
+    .header li a {
+        padding: 20px 30px;
+    }
+
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+
+    .header .menu-icon {
+        display: none;
+    }
+
+    .head {
+        margin-top: 0px;
+    }
+}
+
+
+
+
+
+
+
+@media (max-width: 429px) {
+    .nav {
+        margin-bottom: 0px;
+    }
+
+    .head {
+        margin-top: 0px;
+    }
+}
+
+
+
+
+.btn-toggle {
+    margin: 15px auto 5px 50px;
+    padding: 3px;
+    background-color: white;
+    color:  rgb(55, 55, 53);
+    border: 0.5px solid rgb(169, 166, 166);
+    border-radius: 10px;
+    content: "Y";
+}
+
+
+
+
+
+/* scroll to top css */
+#myBtn {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Fixed/sticky position */
+    bottom: 20px;
+    /* Place the button at the bottom of the page */
+    right: 10px;
+    /* Place the button 30px from the right */
+    z-index: 99;
+    /* Make sure it does not overlap */
+    border: none;
+    /* Remove borders */
+    outline: none;
+    /* Remove outline */
+    background-color: rgb(19, 18, 18);
+    /* Set a background color */
+    color: white;
+    /* Text color */
+    cursor: pointer;
+    /* Add a mouse pointer on hover */
+    padding: 10px;
+    /* Some padding */
+    border-radius: 10px;
+    /* Rounded corners */
+    font-size: 15px;
+    /* Increase font size */
+}
+
+#myBtn:hover {
+    background-color: #dab317;
+    /* Add a dark-grey background on hover */
+}
+
+
+/* bubble in out */
+
+.bubble {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+    position: absolute;
+    border-radius: 20px;
+    background: rgb(84, 77, 77);
+   
+    animation: myBubble 7s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    border: 2px lime solid;
+
+}
+
+.bubble p {
+    color: limegreen;
+    text-align: center;
+    padding: 5px;
+    font-size: 1em;
+
+}
+
+@keyframes myBubble {
+    0% {
+        margin-left: -110px;
+        opacity: 0.5;
+    }
+
+    50% {
+        margin-left: 50px;
+        opacity: 1;
+    }
+
+    75% {
+        margin-left: 20px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-left: -110px;
+        opacity: 0;
+    }
+}

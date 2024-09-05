@@ -865,6 +865,57 @@
 
 
 
+/* light mode */
+.light-mode {
+    background: var(--light);
+    color: var(--dark);
+}
+.light-mode h1 {
+    color: var(--dark);
+   
+}
+ .light-mode p {
+    color: var(dark);
+}
+.light-mode div {
+    background: var(--light);
+    color: var(--dark);
+}
+.light-mode button {
+    background-color: var(--light);
+    color: var(--dark);
+    content: "Light Mode";
+}
+
+
+
+/*  dark mode */
+.dark-mode {
+  background: var(--dark);
+  color: var(--light);
+ }
+
+ .dark-mode h1 {
+    color: var(--light);  
+}
+.dark-mode p {
+    color: var(light);
+}
+.dark-mode div {
+    color: var(--light);
+   /* background-color: rgb(95, 95, 92); */
+}
+.dark-mode button {
+    background-color: rgb(86, 86, 89);
+    color: var(--light);
+    content: "Dark Mode";
+}
+/*
+.dark-mode p.by a{
+    color: #777;
+}
+*/
+
 
 
 
