@@ -1,0 +1,424 @@
+<!---
+    Author: LamareeB.
+    Date: June, 2024 5:45pm
+    Purpose: form validation submit - for demo on portfolio, not coldfusion app
+--->
+
+<!--- if form fileds are blank send back to form page ---->
+<!-- <cfif form.uname EQ ""
+        OR form.password EQ ""
+        OR form.email EQ ""
+        OR form.phone EQ ""
+        OR form.role EQ ""
+        OR form.subject EQ ""
+        >
+    <cflocation url="formValidationNoImage.cfm">
+<cfelse> -->
+
+<!doctype html>
+<html lang="en">
+<head>
+<title>Form With Validation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Lamaree">
+<meta name="description" content="Form with validation">
+<meta name="copyright"content="Laura Blankenship">
+<meta name="language" content="EN">
+<meta name="revised" content="April 2022">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<!--- for the phone number dashes field --->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!---   icon for password eyeball -------------------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+  body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bodyBackground);
+      font-family: Arial, Helvetica, sans-serif;
+
+
+  }
+.message {
+    color: black;
+    width: 300px;
+    padding: 30px;
+    margin: 125px auto;
+    text-align: center;
+    background-color: white;
+}
+
+
+:root {
+    font-size: 1rem;
+    --main-white: rgb(248, 244, 244);
+    --dark-white: rgb(252, 248, 248);
+
+    --main-gray: #3b3f44;
+    --light-gray: rgb(226, 226, 232);
+
+    --darkText: rgb(21, 21, 22);
+    --light-text: rgb(76, 72, 72);
+    --lightBackground: rgb(232, 227, 227);
+    --myName: rgb(51, 51, 53);
+    --header: rgb(254, 253, 253);
+
+    --h2: rgb(229, 191, 42);
+    --goldAccent: rgb(229, 191, 42);
+    --goldHover: gold;
+
+}
+
+/* Style the top navigation bar */
+.nav {
+    top: 0;
+    position: absolute;
+    height: auto;
+    width: 100%;
+}
+
+/* header */
+.header {
+    top: 0;
+    position: absolute;
+    background-color: var(--header);
+    box-shadow: 1px 1px 4px 0 rgba(243, 240, 240, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: var(--header);
+}
+
+.header li a {
+    display: block;
+    padding: 20px 20px;
+    border-left: 1px solid #f4f4f4;
+    text-decoration: none;
+    color: rgb(52, 52, 52);
+    font-size: 1.0rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.2em;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+    background-color: var(--lightBackground);
+    color: var(--darkText);
+}
+
+.logo {
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.logo a:link {
+    color: rgb(0, 255, 4);
+}
+
+.logo a:hover {
+    color: rgb(0, 255, 4);
+}
+
+.header .logo {
+    display: block;
+    float: left;
+    font-size: 0.9rem;
+
+    text-decoration: none;
+    color: rgb(0, 255, 4);
+}
+
+.header .logo a:link {
+    color: rgb(0, 255, 4);
+}
+
+/* menu */
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+}
+
+/* menu icon */
+.header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+
+.header .menu-icon .navicon {
+    background: var(--main-gray);
+    /* color for middle line of burger */
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+    background: var(--main-gray);
+    /* color for top and bottom lines of burger */
+    content: "";
+    height: 2px;
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+    top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+    top: -5px;
+}
+
+/* menu btn */
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked~.menu {
+    max-height: 240px;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+
+.main,
+.navbar {
+    flex-direction: column;
+}
+
+.main {
+    margin: 50px auto 0px auto;
+
+}
+
+.main ul {
+    margin-left: 1px;
+}
+
+.main h2 {
+    text-align: center;
+}
+
+.main h3 {
+    text-align: center;
+}
+
+.center {
+    margin: 25px auto;
+}
+
+pre {
+    margin-top: 50px;
+    width: 85%;
+    overflow: scroll;
+}
+
+/*  style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 90%;
+    height: 100%;
+}
+
+/* iframe main container  ******************************/
+.my-iframe-container {
+    width: 90%;
+}
+
+.my-iframe-container2 {
+    width: 90%;
+}
+
+.my-iframe-container3 {
+    width: 90%;
+}
+
+
+.footerIcons {
+    width: 65%;
+}
+
+.footerIcons a {
+    font-size: 1em;
+    margin-right: 6px;
+}
+
+
+
+.formImgHolder {
+    height: 675px;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+
+}
+
+.formImg {
+    height: 600px;
+    width: 80%;
+
+    margin: 20px auto;
+    border: 1px white solid;
+}
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+.nav {
+    top: 0;
+    position: absolute;
+    height: auto;
+    width: 100%;
+
+}
+
+.header li {
+    float: left;
+}
+
+.header li a {
+    padding: 20px 30px;
+}
+
+.header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+}
+
+.header .menu-icon {
+    display: none;
+}
+
+.head {
+    margin-top: 0px;
+}
+}
+
+
+
+
+@media (max-width: 429px) {
+.nav {
+    margin-bottom: 0px;
+}
+
+.head {
+    margin-top: 0px;
+}
+}
+
+
+/*  End Menu Navigation */
+</style>
+</head>
+<body>
+
+
+  <nav>
+    <header class="header">
+      <a href="index.html">
+        <img src="../images/logo4.jpg" alt="logo" class="logo" id="logo"/></a> 
+      <!--- end  logo --->
+ 
+     
+      <input class="menu-btn toggler" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn">
+        <span class="navicon"></span>
+      </label>
+      <ul class="menu">
+        <li><a onclick="test()" href="../index.html">Home</a></li>
+        <li><a onclick="test()" href="../index.html#about">About</a></li>
+        <li><a onclick="test()" href="../index.html#projects">Projects</a></li>
+        <li><a onclick="test()" href="../index.html#contact">Contact</a></li>
+       
+      </ul>
+    </header>
+  </nav>
+
+
+    <div class="message">
+        <p>Thank you, your form has been submitted.</p>
+
+     </div>
+
+<!-- </cfif> -->
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
