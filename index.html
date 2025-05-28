@@ -178,7 +178,8 @@
 
 
 
- <!---           <h4>Familiar With</h4>
+ <!---    
+        <h4>Familiar With</h4>
                 <ul>
                   <li>D3.js</li>
                   <li>React</li>
@@ -263,7 +264,7 @@
             </ul>
           
 
-          <h4>
+          <h4 style="font-weight: normal;">
             AA Degree - Medical Technology
           </h4>
 
@@ -281,6 +282,25 @@
 
 
       <h2>Projects</h2>
+
+
+
+<h3>Evervia - ColdFusion Web Application</h3>
+      <a href="https://www.evervia.org"/>
+            <img 
+            src="images/ogImage.png" 
+             aria-label="Link to Evervia Website - ColdFusion Web Application"
+            alt = " Evervia - ColdFusion/Lucee web application"
+            title="Evervia Website - ColdFusion Web Application""
+            style="height: 300px; width: 300px; margin: 40px auto 60px auto; display: block;"    
+            >
+
+        </a> 
+ 
+
+
+
+
 
 
       <h3>Mock Phone</h3>
@@ -327,90 +347,11 @@
       <input type="button" id="btn" class="button" value="Refresh the frame" />
       
 
-      <!---
-      <div class="my-iframe-container2">
-        <iframe
-          class="my-iframe2 responsive-iframe"
-          src="Studio4/index.html"
-          title="Studio 4"
-        ></iframe>
-      </div>
-      --->
-      <!--- close my-iframe-container --->
+ 
 
 
-      <div class="codebox">
-
-
-       <h2>ColdFusion Code Sample</h2>
-
-       <h3>Authenticates User Login</h3>
-      
-       
-    <pre>
-      
-
-    &lt!--- 
-    This function checks the db to authenticate the user attempting to log in. 
-    It first checks if username entered in form exists in the database. If it does,
-    it then checks validity of the password.
-    If authentication passes, session variables are set, and user can access 
-    pages/sections they are authorized to see. 
-    If authentication fails, user is sent to error page.
-        ---&gt
-
-
-                      
-     &ltcfcomponent displayname="Authenticate" hint="Authenticates user login"&gt
-                      
-        &ltcffunction name="Login" hint="checks login entered, compares to db"&gt
-                          
-           &ltcfquery name= "Authenticate"  datasource = "#request.datasource#"&gt
-               SELECT
-                    hashPassword,
-                    saltPassword,
-                    userRole,
-                    user_ID
-               FROM
-                    Users
-               WHERE 
-                   CFSQL userName = &lt cfqueryparam CFSQLType="CF_SQL_VARCHAR" value= "#form.username#" &gt
-          &lt/cfquery&gt
-                        
-                      
-                  &lt!--- Username doesn't exist, send to error page ---&gt
-
-        &ltcfif !Authenticate.recordcount>
-               &ltcflocation  url="error.cfm"  addtoken=false&gt
-        &ltcfif&gt
-                      
-                      
-
-                  &lt!--- If username exists, now test to see if password passes -----&gt
-
-          &ltcfif Authenticate.hashPassword EQ hash(form.password & Authenticate.saltPassword, "SHA-512")&gt
-                        
-                  &lt!--- user is authenticated, set the session variables ----&gt
-
-               &ltcfset Session.Auth = StructNew()&gt
-               &ltcfset Session.Auth.IsLoggedIn = "Yes"&gt
-               &ltcfset Session.Auth.UserID = Authenticate.user_ID&gt
-               &ltcfset Session.Auth.UserRole = Authenticate.userRole&gt
-               &ltcfset Session.Auth.userName = "#form.username#"&gt
-                               
-
-          &ltcfelse&gt &lt!--- password failed, send to error page ---&gt
-              &ltcflocation  url="error.cfm" addtoken=false&gt
-          &lt/cfif&gt
-                      
-
-        &ltcfreturn Login &gt
-       &lt/cffunction&gt
-      &lt/cfcomponent&gt
-
-    </pre>
         
-   </div><!--- close text box ------>
+
 
  </div><!--- close projects ---
     -------------------------------------------------------->
@@ -467,7 +408,7 @@
 
     <div class="copyright">
       <p>
-      &copyLaura Blankenship - 2023
+      &copyLaura Blankenship - 2025
     </p>
     </div>
 

@@ -518,11 +518,12 @@
       left: 0;
       bottom: 0;
       right: 0;
-      width: 100%;
+      width: 80%;
       height: 99%;
       border: none;
 
   }
+
 
   /* form - outer container of iframe */
   /* form */
@@ -599,6 +600,18 @@
 
 
 
+
+
+.projects.evervia {
+     
+          height:300px;
+          width: 300px;
+         
+          text-align: center;
+          margin: auto;
+     
+}
+    
 
 
   footer {
